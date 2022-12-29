@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('shops', function (Blueprint $table) {
             $table->id();
+            $table->unsignedInteger('user_id'); // for user_id
             $table->timestamps();
         });
     }
