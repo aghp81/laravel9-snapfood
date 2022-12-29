@@ -13,6 +13,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
+//default laravel routes
 Route::get('/', function () {
     return view('welcome');
 });
@@ -26,3 +28,9 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
 });
+
+
+// admin routes
+Route::resource();
+Route::get('shop', 'ShopController@index')->name('shop.index');
+
