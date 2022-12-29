@@ -31,6 +31,5 @@ Route::middleware([
 
 
 // admin routes
-Route::resource();
-Route::get('shop', 'ShopController@index')->name('shop.index');
+Route::resource('shop', 'ShopController');
 
