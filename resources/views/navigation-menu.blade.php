@@ -17,7 +17,7 @@
                     </x-jet-nav-link>
 
                     <x-jet-nav-link href="{{ route('shop.index') }}" :active="request()->routeIs('shop.index')">
-                        {{ __('Dashboard') }}
+                        {{ __('Sellers Admin') }}
                     </x-jet-nav-link>
 
                 </div>
