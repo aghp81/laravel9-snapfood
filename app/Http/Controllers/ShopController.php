@@ -49,7 +49,7 @@ class ShopController extends Controller
 
         // create user in database
 
-        $randomPass = random(1000, 9999);// پسورد را رندم می سازد.
+        $randomPass = rand (1000, 9999);// پسورد را رندم می سازد.
 
         $user = User::create([
             'name' => $request->username,
@@ -65,8 +65,16 @@ class ShopController extends Controller
         // create shop in database
 
         Shop::create([
-
+            'user_id' => $user->id,
+            'title' => $request->title,
+            'first_name' => $request->first_name,
+            'last_name' => $request->last_name,
+            'telephone' => $request->telephone,
+            'address' => $request->address,
         ]);
+
+        // redirect
+
 
     }
 
