@@ -31,5 +31,6 @@ Route::middleware([
 
 
 // admin routes
+    // shop resource route
 Route::resource('shop', 'ShopController');
 
