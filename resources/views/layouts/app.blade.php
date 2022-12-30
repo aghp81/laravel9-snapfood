@@ -49,6 +49,14 @@
                                 <x-jet-validation-errors />
                             </div>
                         @endif
+                        
+                        
+                        <!-- نمایش پیام های موفقیت -->
+                        @if($message = session('message'))
+                            <div class="text-gray-50 bg-green-400 overflow-hidden shadow-xl sm:rounded-lg p-4 mb-6">
+                                {{ $message }}
+                            </div>
+                        @endif
                     
                     
                     <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg p-4">

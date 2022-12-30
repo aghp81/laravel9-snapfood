@@ -75,7 +75,11 @@ class ShopController extends Controller
 
         // redirect
 
-
+        // return back(); // برمیگرده به روت قبلی
+        // return redirect('shop'); // localhost:8000/shop
+        return redirect()->route('shop.index')->withMessage( __('SUCCESS') ); // SUCCESS in fa.json
+        // میتوانیم به جای withMessage بنویسم withGoli مثلا
+        // ولی باید در هنگام نمایش پیام موفقیت به جای message بنویسیم gholi
     }
 
  
