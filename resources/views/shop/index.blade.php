@@ -37,7 +37,7 @@
                 <tr>
                     <th> {{ $key + 1 }} </th>
                     <td> {{ $shop->title }} </td>
-                    <td> {{ $shop->first_name }}  {{ $shop->last_name }} </td>
+                    <td> {{ $shop->full_name }} </td> <!--  استفاده از Appends در Shop Model  -->
                     <td> {{ $shop->telephone }} </td>
                     <td> {{ $shop->created_at }} </td>
                 </tr>
