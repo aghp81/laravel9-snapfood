@@ -96,7 +96,16 @@ return [
     |
     */
     'attributes' => array(
-        '' => '',
+        // shop form
+        'title' => 'عنوان',
+        'first_name' => 'نام',
+        'last_name' => 'نام خانوادگی',
+        'telephone' => 'تلفن',
+        'email' => 'ایمیل',
+        'username' => 'نام کاربری',
+        'address' => 'آدرس',
+
+        // ...
     ),
 
 

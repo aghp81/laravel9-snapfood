@@ -38,7 +38,7 @@ class ShopController extends Controller
             'first_name' => 'required|string',
             'last_name' => 'required|string',
             'telephone' => 'required|string|size:11',
-            'email' => 'required|email',
+            'email' => 'required|email|unique:users,email',
             'username' => 'required|unique:users,name',// مشخص میکنیم در چه جدولی و چه ستونی یونیک باشد.
             'address' => 'nullable',
         ]);
