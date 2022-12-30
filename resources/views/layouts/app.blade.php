@@ -44,9 +44,11 @@
                     <div class="max-w-7xl mx-auto px-2 sm:px-3 lg:px-4">
                         
                         <!-- نمایش ارورهای ولیدیشن -->
-                        <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg p-4 mb-6">
-                            <x-jet-validation-errors />
-                        </div>
+                        @if($errors->any())
+                            <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg p-4 mb-6">
+                                <x-jet-validation-errors />
+                            </div>
+                        @endif
                     
                     
                     <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg p-4">
