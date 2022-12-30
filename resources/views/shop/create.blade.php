@@ -5,11 +5,11 @@
         </h2>
     </x-slot>
 
-    <form class="grid grid-cols-5 gap-4" action="{{ route('shop.store') }}" method="POST">
+    <form class="grid grid-cols-3 gap-4" action="{{ route('shop.store') }}" method="POST">
 
         @csrf
 
-        <div class="col-span-2">
+        <div>
             <x-jet-label for="title" value="{{ __('Title Of Store') }}" />
             <x-jet-input id="title" class="block mt-3 w-full" type="text" name="title" :value="old('title')" required autofocus />
         </div>
@@ -29,20 +29,41 @@
             <x-jet-input id="telephone" class="block mt-3 w-full" type="text" name="telephone" :value="old('telephone')" required />
         </div>
 
-        <div class="col-span-5">
+        
+
+        
+        <!-- دریافت ایمیل و نام کاربری و آدرس-->
+        <div>
+            <div>
+                <x-jet-label for="email" value="{{ __('Email') }}" />
+                <x-jet-input id="email" class="block mt-3 w-full" type="text" name="email" :value="old('email')" required />
+            </div>
+        </div>
+
+        <div>
+            <div>
+                <x-jet-label for="username" value="{{ __('Username') }}" />
+                <x-jet-input id="username" class="block mt-3 w-full" type="text" name="username" :value="old('username')" required />
+            </div>
+        </div>
+
+        <div class="col-span-3">
             <x-jet-label for="address" value="{{ __('address') }}" />
             <x-jet-input id="address" class="block mt-3 w-full" type="text" name="address" :value="old('address')" required />
         </div>
+        
 
-        <div  class=" col-start-3 col-end-4">
-
+        
+        <!-- دکمه ذخیره -->
+        <div  class="col-start-2 col-end-3">
             <div class="flex justify-center">
                 <x-jet-button>
                     {{ __('Save') }}
                 </x-jet-button>
             </div>
-            
         </div>
+
+        
 
     </form>
     

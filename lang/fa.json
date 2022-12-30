@@ -67,5 +67,6 @@
     "first_name":"نام",
     "last_name":"نام خانوادگی",
     "telephone": "شماره تماس",
-    "address": "آدرس"
+    "address": "آدرس",
+    "Username": "نام کاربری"
 }
