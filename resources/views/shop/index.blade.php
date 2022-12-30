@@ -39,7 +39,7 @@
                     <td> {{ $shop->title }} </td>
                     <td> {{ $shop->full_name }} </td> <!--  استفاده از Appends در Shop Model  -->
                     <td> {{ $shop->telephone }} </td>
-                    <td> {{ $shop->created_at }} </td>
+                    <td> {{ persianDate($shop->created_at) }} </td> <!--  تبدیل تاریخ میلادی به شمسی  -->
                 </tr>
 
             @endforeach
