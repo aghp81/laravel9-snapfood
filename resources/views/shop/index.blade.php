@@ -29,16 +29,22 @@
                 <th> تاریخ شروع فعالیت  </th>
             </tr>
         </thead>
-            <tr>
-                <th> 1 </th>
-                <td> ... </td>
-                <td> ... </td>
-                <td> ... </td>
-                <td> ... </td>
-            </tr>
-        <tbody>
 
+        
+        <tbody>
+            @foreach($shops as $key => $shop)
+
+                <tr>
+                    <th> {{ $key + 1 }} </th>
+                    <td> {{ $shop->title }} </td>
+                    <td> {{ $shop->first_name }}  {{ $shop->last_name }} </td>
+                    <td> {{ $shop->telephone }} </td>
+                    <td> {{ $shop->created_at }} </td>
+                </tr>
+
+            @endforeach
         </tbody>
+
     </table>
 
     @endif
