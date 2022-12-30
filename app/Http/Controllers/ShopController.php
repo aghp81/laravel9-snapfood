@@ -23,25 +23,25 @@ class ShopController extends Controller
         return view('shop.index');
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    
     public function create()
     {
         return view('shop.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+    
     public function store(Request $request)
     {
-        //
+        // dd($request->all());
+        $data = $request->validate([
+            'title' => 'required|between:3,100|string|unique:shops,title', // مشخص میکنیم در چه جدولی و چه ستونی یونیک باشد.
+            'first_name' => 'required|string',
+            'last_name' => 'required|string',
+            'telephone' => 'required|string|size:11',
+            'email' => 'required|email',
+            'username' => 'required|unique:users,name',// مشخص میکنیم در چه جدولی و چه ستونی یونیک باشد.
+            'address' => 'nullable',
+        ]);
     }
 
     /**
