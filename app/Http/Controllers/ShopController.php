@@ -11,6 +11,7 @@ class ShopController extends Controller
     // برای پیاده سازی میدلور CheckAdmin
     public function __construct()
     {
+        $this->middleware('auth');
         $this->middleware('admin');
     }
     
