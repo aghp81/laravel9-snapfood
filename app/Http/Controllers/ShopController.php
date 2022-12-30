@@ -11,7 +11,7 @@ class ShopController extends Controller
     // برای پیاده سازی میدلور CheckAdmin
     public function __construct()
     {
-        $this->middleware(['auth', 'admin']);
+        $this->middleware(['auth', 'admin'])->except(['show', 'index']);// خارج کردن دو بخش از میدلور. همه کاربران می توانند ببینند.
         // $this->middleware('auth');
         // $this->middleware('admin');
     }
