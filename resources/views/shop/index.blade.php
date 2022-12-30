@@ -12,14 +12,39 @@
             {{ __('Define New Sellers') }}
         </a>
 
-        
-        <a href=""></a>
-        <a href=""></a>
-        <a href=""></a>
     </div>
 
     
+    @if($shops->count())
+
     <hr class="my-4">
+
+    <table>
+        <thead>
+            <tr>
+                <th> #  </th>
+                <th> عنوان فروشگاه </th>
+                <th>  نام مدیر </th>
+                <th> تلفن  </th>
+                <th> تاریخ شروع فعالیت  </th>
+            </tr>
+        </thead>
+            <tr>
+                <th> 1 </th>
+                <td> ... </td>
+                <td> ... </td>
+                <td> ... </td>
+                <td> ... </td>
+            </tr>
+        <tbody>
+
+        </tbody>
+    </table>
+
+    @endif
+    
+
+
 
 
 </x-app-layout>
