@@ -7,11 +7,13 @@ use Illuminate\Http\Request;
 
 class ShopController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
+    // برای پیاده سازی میدلور CheckAdmin
+    public function __construct()
+    {
+        $this->middleware('admin');
+    }
+    
     public function index()
     {
         return view('shop.index');
