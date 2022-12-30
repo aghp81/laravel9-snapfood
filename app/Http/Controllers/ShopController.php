@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Shop;
+use App\Models\User;
+
 use Illuminate\Http\Request;
 
 class ShopController extends Controller
@@ -33,6 +35,8 @@ class ShopController extends Controller
     public function store(Request $request)
     {
         // dd($request->all());
+
+        // validate request for shop
         $data = $request->validate([
             'title' => 'required|between:3,100|string|unique:shops,title', // مشخص میکنیم در چه جدولی و چه ستونی یونیک باشد.
             'first_name' => 'required|string',
@@ -42,14 +46,31 @@ class ShopController extends Controller
             'username' => 'required|unique:users,name',// مشخص میکنیم در چه جدولی و چه ستونی یونیک باشد.
             'address' => 'nullable',
         ]);
+
+        // create user in database
+
+        $randomPass = random(1000, 9999);// پسورد را رندم می سازد.
+
+        $user = User::create([
+            'name' => $request->username,
+            'email' => $request->email,
+            'role' => 'shop',
+            'email_verified_at' => now(),
+            'password' => bcrypt($randomPass), // پسورد را رندم می سازد.
+        ]);
+
+        // dd($data);
+        // dd($user->id);
+
+        // create shop in database
+
+        Shop::create([
+
+        ]);
+
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Shop  $shop
-     * @return \Illuminate\Http\Response
-     */
+ 
     public function show(Shop $shop)
     {
         //
