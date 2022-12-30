@@ -62,5 +62,8 @@
     "Sellers Admin": "مدیریت فروشنده ها",
     "Sellers Management": "مدیریت فروشنده ها",
     "Define New Sellers": "تعریف فروشنده جدید",
-    "": ""
+    "Create New Sellers": "ایجاد فروشنده جدید",
+    "Title Of Store": "عنوان فروشگاه",
+    "first_name":"نام",
+    "last_name":"نام خانوادگی"
 }
