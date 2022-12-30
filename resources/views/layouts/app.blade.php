@@ -15,6 +15,7 @@
         
         <!-- Styles -->
         @livewireStyles
+        <link href="/dist/output.css" rel="stylesheet">
      
 
        
