@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Shop;
 use App\Models\User;
+use App\Notifications\NewShop;
 
 use Illuminate\Http\Request;
 
@@ -74,6 +75,11 @@ class ShopController extends Controller
             'address' => $request->address,
         ]);
 
+
+        // notify user
+        $user->notify(new NewShop);
+
+
         // redirect
 
         // return back(); // برمیگرده به روت قبلی
@@ -81,6 +87,11 @@ class ShopController extends Controller
         return redirect()->route('shop.index')->withMessage( __('SUCCESS') ); // SUCCESS in fa.json
         // میتوانیم به جای withMessage بنویسم withGoli مثلا
         // ولی باید در هنگام نمایش پیام موفقیت به جای message بنویسیم gholi
+
+
+        
+
+
     }
 
  
