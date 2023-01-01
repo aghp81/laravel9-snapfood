@@ -1,0 +1,10 @@
+MAIL_DRIVER = smtp
+MAIL_HOST = smtp.gmail.com
+MAIL_PORT = 587
+MAIL_USERNAME = your-gmail-username
+MAIL_PASSWORD = your-gmail-password
+MAIL_ENCRYPTION = tls
+---------------------------------------------------------------
+https://stackoverflow.com/questions/33939393/failed-to-authenticate-on-smtp-server-error-using-gmail
+
+
