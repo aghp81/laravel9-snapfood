@@ -41,10 +41,11 @@ class NewShop extends Notification
     public function toMail($notifiable)
     {
         return (new MailMessage)
-                    ->greeting('')
-                    ->line('The introduction to the notification.')
+                    ->greeting('سلام. به فروشگاه ما خوش امدید.')
+                    ->line('برای شکا در سایت SF یک حساب کاربری ایجاد شد. شما می توانید به حساب کاربری خود از طریق لینک زیر دسترسی پیدا کنید و وارد حساب کاربری خود شوید.')
+                    ->line('نام کاربری شما uuuu  میباشد و رمز عبور PPP می باشد.')
                     ->action('Notification Action', url('/'))
-                    ->line('Thank you for using our application!');
+                    ->line('لطفا جهت امنیت بیشتر پس از ورود به حساب کاربری لطفا حتما روز عبور خود را تغییر دهید.!');
     }
 
     /**
