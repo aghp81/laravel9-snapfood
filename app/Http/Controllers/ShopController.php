@@ -30,7 +30,9 @@ class ShopController extends Controller
     
     public function create()
     {
-        return view('shop.form'); // برای ایجاد و ویرایش فروشگاه
+        $shop = new Shop; // برای اینکه اگر فرم در حالت ایجاد بود همه فیلدها رو نشون بده اگر در حالت ویرایش بود فیلد نام کاربری و ایمیل رو نشون نده.
+        return view('shop.form', compact('shop')); // برای ایجاد و ویرایش فروشگاه
+        // shop در حالت create ای دی ندارد.
     }
 
     
