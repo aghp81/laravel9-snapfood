@@ -30,7 +30,7 @@ class ShopController extends Controller
     
     public function create()
     {
-        return view('shop.create');
+        return view('shop.form'); // برای ایجاد و ویرایش فروشگاه
     }
 
     
@@ -100,15 +100,11 @@ class ShopController extends Controller
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Shop  $shop
-     * @return \Illuminate\Http\Response
-     */
+
+
     public function edit(Shop $shop)
     {
-        //
+        return view('shop.form', compact('shop')); // برای ایجاد و ویرایش فروشگاه
     }
 
     /**
