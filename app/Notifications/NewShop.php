@@ -11,14 +11,22 @@ class NewShop extends Notification
 {
     use Queueable;
 
+    
+     // برای ارسال نام کاربری ایمیل و پسورد فروشنده ثبت نام شده به ایمیل او
+    private $email = null;
+    private $pass = null;
+
     /**
      * Create a new notification instance.
      *
      * @return void
      */
-    public function __construct()
+
+     // برای ارسال نام کاربری ایمیل و پسورد فروشنده ثبت نام شده به ایمیل او
+    public function __construct($email, $pass)
     {
-        //
+        $this->email = $email;
+        $this->pass = $pass;
     }
 
     /**
@@ -43,7 +51,7 @@ class NewShop extends Notification
         return (new MailMessage)
                     ->greeting('سلام. به فروشگاه ما خوش امدید.')
                     ->line('برای شما در سایت SF یک حساب کاربری ایجاد شد. شما می توانید به حساب کاربری خود از طریق لینک زیر دسترسی پیدا کنید و وارد حساب کاربری خود شوید.')
-                    ->line('نام کاربری شما uuuu  میباشد و رمز عبور PPP می باشد.')
+                    ->line("نام کاربری شما $this->email  میباشد و رمز عبور $this->pass می باشد.")
                     ->action('ورود به حساب کاربری', url('/login'))
                     ->line('لطفا جهت امنیت بیشتر پس از ورود به حساب کاربری لطفا حتما روز عبور خود را تغییر دهید.!');
     }
