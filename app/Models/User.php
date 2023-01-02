@@ -61,9 +61,4 @@ class User extends Authenticatable
         'profile_photo_url',
     ];
 
-    public function shop()
-    {
-        return $this->hasOne(Shop::class);
-    }
-
 }

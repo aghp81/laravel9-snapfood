@@ -29,6 +29,7 @@
                 <th> ایمیل  </th>
                 <th> نام کاربری  </th>
                 <th> تاریخ شروع فعالیت  </th>
+                <th class="col-span-2"> عملیات </th>
             </tr>
         </thead>
 
@@ -44,6 +45,12 @@
                     <td> {{ $shop->user->email ?? '-' }} </td> <!--Chain فراخوانی داده از جدول یوزر-->
                     <td> {{ $shop->user->name ?? '-' }} </td>
                     <td> {{ persianDate($shop->created_at) }} </td> <!--  تبدیل تاریخ میلادی به شمسی  -->
+                    <td> 
+                        <a href="{{ route ('shop.edit', $shop->id) }}" class="inline-flex items-center px-4 py-2 bg-gray-700 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:ring focus:ring-gray-300 disabled:opacity-25 transition">
+                            ویرایش
+                        </a>
+                    </td>
+                    <td> حذف </td>
                 </tr>
 
             @endforeach
