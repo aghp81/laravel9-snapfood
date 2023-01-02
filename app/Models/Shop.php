@@ -18,4 +18,10 @@ class Shop extends Model
         return $this->first_name . ' ' . $this->last_name;
     }
 
+    // برای دریافت ایمیل و نام کاربری فروشگاه و نمایش آن 
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
 }
