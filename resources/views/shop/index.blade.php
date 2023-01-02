@@ -43,7 +43,7 @@
                     <td> {{ $shop->telephone }} </td>
                     <td> {{ $shop->user->email ?? '-' }} </td> <!--Chain فراخوانی داده از جدول یوزر-->
                     <td> {{ $shop->user->name ?? '-' }} </td>
- ?? '-'                    <td> {{ persianDate($shop->created_at) }} </td> <!--  تبدیل تاریخ میلادی به شمسی  -->
+                    <td> {{ persianDate($shop->created_at) }} </td> <!--  تبدیل تاریخ میلادی به شمسی  -->
                 </tr>
 
             @endforeach
