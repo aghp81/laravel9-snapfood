@@ -77,8 +77,8 @@ class ShopController extends Controller
 
 
         // notify user
-        $user->notify(new NewShop);
-
+        $user->notify(new NewShop($user->email, $randomPass));
+        // پاس دادن نام کاربری و رندم پس برای ارسال به ایمیل
 
         // redirect
 
