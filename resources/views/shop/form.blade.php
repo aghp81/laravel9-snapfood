@@ -6,7 +6,7 @@
     </x-slot>
 
     <!-- اگر شاپ آی دی داشت هدایت شود به آپدیت در غیر این صورت هدایت شود به استور -->
-    <form class="grid grid-cols-3 gap-4" action="{{$shop->id ? route('shop.update') : route('shop.store') }}" method="POST">
+    <form class="grid grid-cols-3 gap-4" action="{{$shop->id ? route('shop.update', $shop->id) : route('shop.store') }}" method="POST">
 
         @csrf
 
