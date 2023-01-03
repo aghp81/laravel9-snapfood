@@ -36,7 +36,7 @@
         <!-- دریافت ایمیل و نام کاربری و آدرس-->
 
         <!-- اگر ایجاد فروشگاه جدید باشد، فیلد ایمیل و نام کاربری نمایش دادم می شود، در غیر اینصورت نمایش داده نمی شود -->
-        @if(!$shop->id)
+        @unless($shop->id)
 
             <div>
                 <div>
@@ -52,8 +52,8 @@
                 </div>
             </div>
 
-        @endif
-        
+        @endunless
+
 
         <div class="col-span-3">
             <x-jet-label for="address" value="{{ __('address') }}" />
