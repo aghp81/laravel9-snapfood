@@ -5,8 +5,7 @@
         </h2>
     </x-slot>
 
-    $shop-> <form ?? 
-
+    
     <form class="grid grid-cols-3 gap-4" action="{{ route('shop.store') }}" method="POST">
 
         @csrf
@@ -35,19 +34,26 @@
 
         
         <!-- دریافت ایمیل و نام کاربری و آدرس-->
-        <div>
-            <div>
-                <x-jet-label for="email" value="{{ __('Email') }}" />
-                <x-jet-input id="email" class="block mt-3 w-full" type="text" name="email" :value="$shop->email ?? old('email')" required />
-            </div>
-        </div>
 
-        <div>
+        <!-- اگر ایجاد فروشگاه جدید باشد، فیلد ایمیل و نام کاربری نمایش دادم می شود، در غیر اینصورت نمایش داده نمی شود -->
+        @if(!$shop->id)
+
             <div>
-                <x-jet-label for="username" value="{{ __('Username') }}" />
-                <x-jet-input id="username" class="block mt-3 w-full" type="text" name="username" :value="$shop->username ?? old('username')" required />
+                <div>
+                    <x-jet-label for="email" value="{{ __('Email') }}" />
+                    <x-jet-input id="email" class="block mt-3 w-full" type="text" name="email" :value="$shop->email ?? old('email')" required />
+                </div>
             </div>
-        </div>
+
+            <div>
+                <div>
+                    <x-jet-label for="username" value="{{ __('Username') }}" />
+                    <x-jet-input id="username" class="block mt-3 w-full" type="text" name="username" :value="$shop->username ?? old('username')" required />
+                </div>
+            </div>
+
+        @endif
+        
 
         <div class="col-span-3">
             <x-jet-label for="address" value="{{ __('address') }}" />
