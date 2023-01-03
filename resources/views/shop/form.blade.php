@@ -9,6 +9,12 @@
     <form class="grid grid-cols-3 gap-4" action="{{$shop->id ? route('shop.update', $shop->id) : route('shop.store') }}" method="POST">
 
         @csrf
+        
+
+        <!-- برای آپدیت متد را روی PUT قرار می دهیم. -->
+        @if($shop->id)
+            @method('PUT')
+        @endif
 
         <div>
             <x-jet-label for="title" value="{{ __('Title Of Store') }}" />
