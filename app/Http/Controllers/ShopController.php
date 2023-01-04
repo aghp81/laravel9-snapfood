@@ -122,8 +122,13 @@ class ShopController extends Controller
                 'telephone' => 'required|string|size:11',
                 'address' => 'nullable',
             ]);
+
+            $shop->update($data);
+
+            return redirect()->route('shop.index')->withMessage( __('SUCCESS') ); // SUCCESS in fa.json
+
     
-            dd($data);
+           // dd($data);
     }
 
     /**
