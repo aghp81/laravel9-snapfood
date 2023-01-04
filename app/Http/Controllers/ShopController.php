@@ -131,14 +131,16 @@ class ShopController extends Controller
            // dd($data);
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Shop  $shop
-     * @return \Illuminate\Http\Response
-     */
+    
     public function destroy(Shop $shop)
     {
-   
+        // dd($shop);
+        // برای حذف کاربرش هم باید از دیتابیس حذف شود.
+        User::where('id', $shop->user_id)->delete();
+        $shop->delete(); // پاک کردن شاپ
+
+        return redirect()->route('shop.index')->withMessage( __('DELETED') ); // DELETED in fa.json
+
+
     }
 }
