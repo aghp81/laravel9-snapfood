@@ -90,10 +90,6 @@ class ShopController extends Controller
         // میتوانیم به جای withMessage بنویسم withGoli مثلا
         // ولی باید در هنگام نمایش پیام موفقیت به جای message بنویسیم gholi
 
-
-        
-
-
     }
 
  
@@ -118,7 +114,16 @@ class ShopController extends Controller
      */
     public function update(Request $request, Shop $shop)
     {
-        //
+             // validate request for update shop
+             $data = $request->validate([
+                'title' => 'required|between:3,100|string|unique:shops,title,'.$shop->id, // $shop->id = برای اینکه خطای تکراری بودن عنوان را ندهد.
+                'first_name' => 'required|string',
+                'last_name' => 'required|string',
+                'telephone' => 'required|string|size:11',
+                'address' => 'nullable',
+            ]);
+    
+            dd($data);
     }
 
     /**
@@ -129,6 +134,6 @@ class ShopController extends Controller
      */
     public function destroy(Shop $shop)
     {
-        //
+   
     }
 }
