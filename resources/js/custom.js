@@ -13,6 +13,10 @@ deleteBtns.forEach((item, i) => {
             icon: "warning",
             buttons: true,
             dangerMode: true,
+            buttons: {
+                cancel: "انصراف",
+                ok: "تایید",
+            },
           })
           .then((willDelete) => {
             if (willDelete) {
