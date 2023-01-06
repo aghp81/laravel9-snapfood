@@ -35,5 +35,5 @@ Route::middleware([
 Route::resource('shop', 'ShopController')->except('show');
 
     // shop resource route
-Route::resource('product', 'ProductController');
+Route::resource('product', 'ProductController')->except('show');
 
