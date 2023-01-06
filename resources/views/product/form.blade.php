@@ -6,7 +6,7 @@
     </x-slot>
 
     <!-- اگر شاپ آی دی داشت هدایت شود به آپدیت در غیر این صورت هدایت شود به استور -->
-    <form action="{{$product->id ? route('product.update', $product->id) : route('product.store') }}" method="POST">
+    <form enctype="multipart/form-data" action="{{$product->id ? route('product.update', $product->id) : route('product.store') }}" method="POST">
 
         @csrf
         
