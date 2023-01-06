@@ -32,7 +32,7 @@ Route::middleware([
 
 // admin routes
     // shop resource route
-Route::resource('shop', 'ShopController');
+Route::resource('shop', 'ShopController')->except('show');
 
     // shop resource route
 Route::resource('product', 'ProductController');
