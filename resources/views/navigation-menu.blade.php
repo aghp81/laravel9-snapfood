@@ -11,15 +11,15 @@
                 </div>
 
                 <!-- Navigation Links -->
-                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-jet-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
+                <div class="hidden sm:-my-px sm:ml-10 sm:flex">
+                    <x-jet-nav-link class="mx-1" href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-jet-nav-link>
                     
                     <!-- اگر کاربری که لاگین کرده ادمین است مدیریت فروشند ها را می بیند -->
                     @admin
 
-                        <x-jet-nav-link href="{{ route('shop.index') }}" :active="request()->routeIs('shop.index')">
+                        <x-jet-nav-link class="mx-1" href="{{ route('shop.index') }}" :active="request()->routeIs('shop.index')">
                             {{ __('Sellers Admin') }} <!-- مدیریت فروشنده ها -->
                         </x-jet-nav-link>
 
@@ -27,7 +27,7 @@
 
                     @admins
 
-                        <x-jet-nav-link href="{{ route('product.index') }}" :active="request()->routeIs('product.index')">
+                        <x-jet-nav-link class="mx-1" href="{{ route('product.index') }}" :active="request()->routeIs('product.index')">
                             {{ __('Product Management') }} <!-- مدیریت محصولات -->
                         </x-jet-nav-link>
 
