@@ -52,13 +52,13 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    /**
-     * The accessors to append to the model's array form.
-     *
-     * @var array
-     */
+ 
     protected $appends = [
         'profile_photo_url',
     ];
+
+    public function is($role) {
+        return $role == $this->role;
+    }
 
 }

@@ -18,7 +18,7 @@ class CheckAdmin
     {
         $user = auth()->user(); // کاربری که لاگین کرده در حال حاضر رو برمیگردونه.
         
-        if ( $user && $user->role  == 'admin' ) {
+        if ( $user && $user->is('admin') ) {
             
             return $next($request); // همه چی اوکیه برو مرحله بعد
         }else{
