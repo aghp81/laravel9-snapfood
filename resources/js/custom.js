@@ -1,9 +1,9 @@
 // انتخاب دکمه حذف فروشگاه
 var deleteBtns = document.querySelectorAll('.delete-record');
 
-deleteBtns.forEach((item, i) => {
+deleteBtns.forEach((btn, i) => {
     // event handler یا  Event Listener
-    item.addEventListener('click', function () {
+    btn.addEventListener('click', function () {
         // console.log('salam' + i);
 
         //swal
@@ -19,10 +19,10 @@ deleteBtns.forEach((item, i) => {
             },
           })
           .then((willDelete) => {
+            // if click on delete btn
             if (willDelete) {
-              swal("آیتم موردنظر حذف شد!", {
-                icon: "success",
-              });
+              // console.log(btn.parentElement.submit());
+              btn.parentElement.submit()
             } else {
               swal("چیزی پاک نشد!");
             }
