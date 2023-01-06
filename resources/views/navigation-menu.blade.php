@@ -24,6 +24,14 @@
                         </x-jet-nav-link>
 
                     @endadmin
+
+                    @shop
+
+                        <x-jet-nav-link href="{{ route('product.index') }}" :active="request()->routeIs('product.index')">
+                            {{ __('Product Management') }} <!-- مدیریت محصولات -->
+                        </x-jet-nav-link>
+
+                    @endshop
                     
 
                 </div>
