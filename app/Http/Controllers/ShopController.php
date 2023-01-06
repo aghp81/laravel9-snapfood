@@ -93,25 +93,13 @@ class ShopController extends Controller
     }
 
  
-    public function show(Shop $shop)
-    {
-        //
-    }
-
-
-
+    
     public function edit(Shop $shop)
     {
         return view('shop.form', compact('shop')); // برای ایجاد و ویرایش فروشگاه
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Shop  $shop
-     * @return \Illuminate\Http\Response
-     */
+    
     public function update(Request $request, Shop $shop)
     {
              // validate request for update shop
