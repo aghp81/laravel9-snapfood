@@ -8,19 +8,19 @@ deleteBtns.forEach((item, i) => {
 
         //swal
         swal({
-            title: "Are you sure?",
-            text: "Once deleted, you will not be able to recover this imaginary file!",
+            title: "آیا مطمئن هستید؟",
+            text: "در صورت پاک کردن امکان بازیابی اطلاعات وجود ندارد!",
             icon: "warning",
             buttons: true,
             dangerMode: true,
           })
           .then((willDelete) => {
             if (willDelete) {
-              swal("Poof! Your imaginary file has been deleted!", {
+              swal("آیتم موردنظر حذف شد!", {
                 icon: "success",
               });
             } else {
-              swal("Your imaginary file is safe!");
+              swal("چیزی پاک نشد!");
             }
           });
     });
