@@ -69,7 +69,9 @@
 
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/css/custom.css', 'resources/js/app.js', 'resources/js/custom.js'])
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
+        
         @stack('modals')
 
         @livewireScripts
