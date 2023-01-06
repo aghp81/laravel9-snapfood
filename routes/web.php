@@ -34,3 +34,6 @@ Route::middleware([
     // shop resource route
 Route::resource('shop', 'ShopController');
 
+    // shop resource route
+Route::resource('product', 'ProductController');
+
