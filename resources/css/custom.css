@@ -25,3 +25,11 @@ th, td {
 tbody > tr:nth-child(even) {
     background-color: #f3f4f6;
 }
+
+.swal-button--ok {
+    background-color: #E74C3C;
+}
+
+.swal-button--ok:hover {
+    background-color: #CB4335 !important;
+}
