@@ -33,3 +33,11 @@ tbody > tr:nth-child(even) {
 .swal-button--ok:hover {
     background-color: #CB4335 !important;
 }
+
+.swal-button--confirm {
+    background-color: #27ae60 !important;
+}
+
+.swal-button--confirm:hover {
+    background-color: #2ecc71 !important;
+}
