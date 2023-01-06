@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\product;
+use App\Models\Shop;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -39,7 +40,15 @@ class ProductController extends Controller
             'description' => 'nullable|string',
             'image' => 'nullable|image|max:2000',
         ]);
-        dd($request->all());
+        // dd($request->all());
+
+        // برای افزودن shop_id
+        $shop = Shop::where('user_id', auth()->id())->firstOrFail(); // اونجایی که آی دی کاربر با آی دی شخصی که لاگین کرده برابره
+        $data['shop_id'] = $shop->id; // دسترسی به ای دی فروشگاه
+
+        // ایجاد محصول در دیتابیس
+        Product::create($data);
+        return redirect()->route('product.index')->withMessage( __('SUCCESS') ); // DELETED in fa.json
     }
 
  
