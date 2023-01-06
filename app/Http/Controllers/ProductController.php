@@ -7,6 +7,12 @@ use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
+
+    // برای پیاده سازی میدلور CheckAdmin
+    public function __construct()
+    {
+        $this->middleware(['auth', 'admins']);
+    }
  
     public function index()
     {
