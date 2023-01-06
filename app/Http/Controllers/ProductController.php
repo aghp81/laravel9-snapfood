@@ -52,6 +52,6 @@ class ProductController extends Controller
     public function destroy(product $product)
     {
         $product->delete();
-        return redirect()->route('shop.index')->withMessage( __('DELETED') ); // DELETED in fa.json
+        return redirect()->route('product.index')->withMessage( __('DELETED') ); // DELETED in fa.json
     }
 }
