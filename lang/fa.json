@@ -75,5 +75,10 @@
     "address": "آدرس",
     "Username": "نام کاربری",
     "Product Management": "مدیریت محصولات",
-    "Define New Product": "تعریف محصول جدید"
+    "Define New Product": "تعریف محصول جدید",
+    "Title Of Product": "عنوان محصول",
+    "Price Of Product": "قیمت محصول",
+    "Discount": "تخفیف",
+    "Image": "تصویر",
+    "Description": "توضیحات"
 }
