@@ -25,6 +25,11 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        // برای نمایش دسترسی ها مشترک shop , admin
+        Blade::if('admins', function () {
+            return auth()->check() && (auth()->user()->is('admin') || auth()->user()->is('shop') );
+        });
+
         Blade::if('admin', function () {
             return auth()->check() && auth()->user()->is('admin');
         });
