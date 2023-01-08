@@ -30,9 +30,23 @@
         @if($product->id)
             @method('PUT')
         @endif
+        
+
+        <!-- نمایش لیست فروشگاه ها برای ادمین -->
+        @admin
+            <div class="flex justify-center mb-5">
+                <select name="shop_id" id="">
+                    @foreach($shops as $shop )
+                        <option value="{{ $shop->id }}">{{ $shop->title }}</option>
+                    @endforeach
+                </select>
+            </div>
+        @endadmin
+
 
         <div class="grid grid-cols-12 gap-4">
 
+            
             <div class="col-span-3">
                 <x-jet-label for="title" value="{{ __('Title Of Product') }}" />
                 <x-jet-input id="title" class="block mt-3 w-full" type="text" name="title" :value="$product->title ?? old('title')" required autofocus />
