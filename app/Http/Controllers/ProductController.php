@@ -25,8 +25,10 @@ class ProductController extends Controller
  
     public function index()
     {
-        if (auth()->user()->is('admin')) {
-            $products = Product::all();
+        if (auth()->user()->is('admin')) { // اگر کاربر مدیر بود همه محصولات رو نمایش بده.
+            $products = Product::all(); 
+        }else{
+            $products = Product::where('shop_id', currentShopId())->get();// فقط محصولات مربوط به همون فروشگاه رو نشون بده
         }
         
         return view('product.index', compact('products'));
@@ -48,8 +50,7 @@ class ProductController extends Controller
         // dd($request->all());
 
         // برای افزودن shop_id
-        $shop = Shop::where('user_id', auth()->id())->firstOrFail(); // اونجایی که آی دی کاربر با آی دی شخصی که لاگین کرده برابره
-        $data['shop_id'] = $shop->id; // دسترسی به ای دی فروشگاه
+        $data['shop_id'] = currentShopId() ; // از طریق هلپر دسترسی به ای دی فروشگاه
 
         if (isset($data['image']) && $data['image']) { // اگر دیتای ایمیج داشتیم
             $data['image'] = upload($data['image']); // آپلود تصویر ا استفاده از تابع هلپر
