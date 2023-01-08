@@ -50,7 +50,6 @@ class ProductController extends Controller
 
         if (isset($data['image']) && $data['image']) { // اگر دیتای ایمیج داشتیم
             $data['image'] = upload($data['image']); // آپلود تصویر ا استفاده از تابع هلپر
-
         }
 
         // ایجاد محصول در دیتابیس
@@ -69,7 +68,12 @@ class ProductController extends Controller
     public function update(Request $request, product $product)
     {
         $data = $request->validate($this->validationRules); // ولدیشین ها
-        
+        if (isset($data['image']) && $data['image']) { // اگر دیتای ایمیج داشتیم
+            $data['image'] = upload($data['image']); // آپلود تصویر ا استفاده از تابع هلپر
+        }
+
+        $product->update($data); // آپدیت محصول از طریق اطلاعاتی که ار دیتا رسیده
+
     }
 
 
