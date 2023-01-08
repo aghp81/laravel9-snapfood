@@ -69,6 +69,7 @@ class ProductController extends Controller
     public function update(Request $request, product $product)
     {
         $data = $request->validate($this->validationRules); // ولدیشین ها
+        
     }
 
 
