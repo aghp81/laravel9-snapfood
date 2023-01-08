@@ -46,6 +46,11 @@ class ProductController extends Controller
         $shop = Shop::where('user_id', auth()->id())->firstOrFail(); // اونجایی که آی دی کاربر با آی دی شخصی که لاگین کرده برابره
         $data['shop_id'] = $shop->id; // دسترسی به ای دی فروشگاه
 
+        if (isset($data['image']) && $data['image']) { // اگر دیتای ایمیج داشتیم
+            $data['image'] = upload($data['image']); // آپلود تصویر ا استفاده از تابع هلپر
+
+        }
+
         // ایجاد محصول در دیتابیس
         Product::create($data);
         return redirect()->route('product.index')->withMessage( __('SUCCESS') ); // DELETED in fa.json
