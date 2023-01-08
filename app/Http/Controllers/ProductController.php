@@ -74,6 +74,8 @@ class ProductController extends Controller
 
         $product->update($data); // آپدیت محصول از طریق اطلاعاتی که ار دیتا رسیده
 
+        return redirect()->route('product.index')->withMessage( __('SUCCESS') ); // DELETED in fa.json
+
     }
 
 
