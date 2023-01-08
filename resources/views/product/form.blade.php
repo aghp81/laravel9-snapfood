@@ -5,6 +5,21 @@
         </h2>
     </x-slot>
 
+    
+
+    <!-- نمایش تصویر در فرم ویرایش: اگر تصویر داشت نمایش داده شود. -->
+
+    @if($product->image)
+        <div class="flex justify-between">
+            <h4>تصویر فعلی</h4>
+            <img src="{{ asset($product->image) }}" width="250px" alt="">
+        </div>
+
+        <hr class="my-4">
+    @endif
+
+    
+
     <!-- اگر شاپ آی دی داشت هدایت شود به آپدیت در غیر این صورت هدایت شود به استور -->
     <form enctype="multipart/form-data" action="{{$product->id ? route('product.update', $product->id) : route('product.store') }}" method="POST">
 
