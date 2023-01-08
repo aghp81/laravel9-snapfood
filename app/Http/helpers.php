@@ -37,6 +37,6 @@ function randomSHA()
 // نمایش ای دی فروشگاهی که لاگین کرده.
 function currentShopId() 
 { 
-    $shop = \app\Shop::where('user_id', auth()->id())->firstOrFail(); // اونجایی که آی دی کاربر با آی دی شخصی که لاگین کرده برابره
+    $shop = App\Models\Shop::where('user_id', auth()->id())->firstOrFail(); // اونجایی که آی دی کاربر با آی دی شخصی که لاگین کرده برابره
     return $shop->id ?? 0; // اگر ای دی را پیدا کرد که کرد اگر نکرد 0 یعنی هیچ کدوم رو برمی گردونه
 }
