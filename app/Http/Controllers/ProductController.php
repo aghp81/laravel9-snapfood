@@ -38,7 +38,8 @@ class ProductController extends Controller
     public function create()
     {
         $product = new Product; // برای اینکه اگر فرم در حالت ایجاد بود همه فیلدها رو نشون بده اگر در حالت ویرایش بود فیلد نام کاربری و ایمیل رو نشون نده.
-        return view('product.form', compact('product')); // برای ایجاد و ویرایش فروشگاه
+        $shops = Shop::all(); // نمایش همه شاپ ها در پنل ادمین برای افزودن محصول
+        return view('product.form', compact('product', 'shops')); // برای ایجاد و ویرایش فروشگاه
         // product در حالت create ای دی ندارد.
     }
 
@@ -65,7 +66,8 @@ class ProductController extends Controller
    
     public function edit(Product $product)
     {
-        return view('product.form', compact('product')); // برای ایجاد و ویرایش فروشگاه
+        $shops = Shop::all(); // نمایش همه شاپ ها در پنل ادمین برای افزودن محصول
+        return view('product.form', compact('product', 'shops')); // برای ایجاد و ویرایش فروشگاه
     }
 
 
