@@ -33,3 +33,10 @@ function randomSHA()
 {
     return bin2hex(random_bytes(10));
 }
+
+// نمایش ای دی فروشگاهی که لاگین کرده.
+function currentShopId() 
+{ 
+    $shop = Shop::where('user_id', auth()->id())->firstOrFail(); // اونجایی که آی دی کاربر با آی دی شخصی که لاگین کرده برابره
+    return $shop->id ?? 0; // اگر ای دی را پیدا کرد که کرد اگر نکرد 0 یعنی هیچ کدوم رو برمی گردونه
+}
