@@ -1,3 +1,11 @@
+// select2
+$(document).ready(function() {
+  $('.select2').select2({
+    width: '100%'
+  });
+});
+
+
 // انتخاب دکمه حذف فروشگاه
 var deleteBtns = document.querySelectorAll('.delete-record');
 
@@ -30,3 +38,6 @@ deleteBtns.forEach((btn, i) => {
     });
 
 });
+
+
+

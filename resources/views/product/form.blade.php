@@ -34,13 +34,17 @@
 
         <!-- نمایش لیست فروشگاه ها برای ادمین -->
         @admin
-            <div class="flex justify-center mb-5">
-                <select name="shop_id" id="">
-                    @foreach($shops as $shop )
-                        <option value="{{ $shop->id }}">{{ $shop->title }}</option>
-                    @endforeach
-                </select>
+            <div class="flex justify-center mb-7">
+                <div class="w-1/3">
+                    <select class="select2" name="shop_id" id="">
+                        <option value="">-- انتخاب کنید --</option>    
+                        @foreach($shops as $shop )
+                            <option value="{{ $shop->id }}">{{ $shop->title }}</option>
+                        @endforeach
+                    </select>
+                </div>
             </div>
+            <hr class="my-4">
         @endadmin
 
 
