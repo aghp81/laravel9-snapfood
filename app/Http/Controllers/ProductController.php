@@ -59,10 +59,11 @@ class ProductController extends Controller
 
         // dd($data);
         // چون دیفالت تخفیف رو صفر در نظر گرفتیم در دیتابیس، اگر دیتای دیسکانت خالی بود برابر صفر درنظر بگیر
-        if (isset($data['discount']) && !$data['discount']){
+        if (!$data['discount']){
             $data['discount'] = 0;
         }
 
+        
         // ایجاد محصول در دیتابیس
         Product::create($data);
         return redirect()->route('product.index')->withMessage( __('SUCCESS') ); // DELETED in fa.json
