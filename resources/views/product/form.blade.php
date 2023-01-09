@@ -36,6 +36,7 @@
         @admin
             <div class="flex justify-center mb-7">
                 <div class="w-1/3">
+                    <label class="block mb-2" for="">انتخاب فروشگاه</label>
                     <select class="select2" name="shop_id" id="">
                         <option value="">-- انتخاب کنید --</option>    
                         @foreach($shops as $shop )
