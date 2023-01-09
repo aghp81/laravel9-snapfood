@@ -50,9 +50,7 @@ class ProductController extends Controller
         $data = $request->validate($this->validationRules); // ولدیشین ها
         // dd($request->all());
 
-        // برای افزودن shop_id
-        $data['shop_id'] = currentShopId() ; // از طریق هلپر دسترسی به ای دی فروشگاه
-
+        
         if (isset($data['image']) && $data['image']) { // اگر دیتای ایمیج داشتیم
             $data['image'] = upload($data['image']); // آپلود تصویر ا استفاده از تابع هلپر
         }
@@ -61,6 +59,18 @@ class ProductController extends Controller
         // چون دیفالت تخفیف رو صفر در نظر گرفتیم در دیتابیس، اگر دیتای دیسکانت خالی بود برابر صفر درنظر بگیر
         if (!$data['discount']){
             $data['discount'] = 0;
+        }
+
+
+        // کاربری که لاگین کرده رو بگیر
+        $currentUser = auth()->user();
+        // اگر کاربر ادمین بود، شاپ ای دی رو بگیر 
+        if ($currentUser->is('admin')) {
+            $data['shop_id'] = $request->shop_id;
+        }else{
+            // برای افزودن shop_id
+        $data['shop_id'] = currentShopId() ; // از طریق هلپر دسترسی به ای دی فروشگاه
+
         }
 
         
