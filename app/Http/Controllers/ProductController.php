@@ -12,7 +12,7 @@ class ProductController extends Controller
     private $validationRules = [
         'title' => 'required|string|min:3',
         'price' => 'required|integer',
-        'discount' => 'nullable|integer|between:1,100',
+        'discount' => 'nullable|integer|between:0,100',
         'description' => 'nullable|string',
         'image' => 'nullable|image|max:2000',
     ];
@@ -93,6 +93,13 @@ class ProductController extends Controller
         $data = $request->validate($this->validationRules); // ولدیشین ها
         if (isset($data['image']) && $data['image']) { // اگر دیتای ایمیج داشتیم
             $data['image'] = upload($data['image']); // آپلود تصویر ا استفاده از تابع هلپر
+        }
+
+        // بروز شدن فروشگاه توسط مدیر
+        // اگر کاربر ادمین باشد. فقط ادمین می تواند فروشگاه را تغییر دهد برای محصول
+        $currentUser = auth()->user();
+        if ($currentUser->is('admin')) {
+            $data['shop_id'] = $request->shop_id;
         }
 
         $product->update($data); // آپدیت محصول از طریق اطلاعاتی که ار دیتا رسیده
