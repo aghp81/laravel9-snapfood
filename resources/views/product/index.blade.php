@@ -32,6 +32,7 @@
                 <th>  نام محصول </th>
                 <th> قیمت  </th>
                 <th> تخفیف  </th>
+                <th> قیمت فروش  </th>
                 <th> تصویر  </th>
                 
                 <th class="col-span-2"> عملیات </th>
@@ -50,6 +51,7 @@
                     <td> {{ $product->title }} </td>
                     <td> {{ number_format($product->price) }} </td> <!--  استفاده از Appends در product Model  -->
                     <td> {{ $product->discount }} </td>
+                    <td> {{ $product->cost }} </td>
                     <td>
                         @if($product->image)
                             <span class="text-green-500">دارد</span>
