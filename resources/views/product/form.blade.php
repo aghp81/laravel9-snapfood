@@ -38,9 +38,17 @@
                 <div class="w-1/3">
                     <label class="block mb-2" for="">انتخاب فروشگاه</label>
                     <select class="select2" name="shop_id" id="">
-                        <option value="">-- انتخاب کنید --</option>    
+                        <!-- اگر شاپ ای دی در پروداکت برابر بود با آی دی شاپ باید سلکتد باشد. برای نمایش نانم فروشگاه انتخاب شده در فرم ویرایش -->
+                        <option value="">
+                            -- انتخاب کنید --
+                        </option>    
                         @foreach($shops as $shop )
-                            <option value="{{ $shop->id }}">{{ $shop->title }}</option>
+                            <option 
+                                @if($product->shop_id == $shop->id) 
+                                selected  @endif  
+                                value="{{ $shop->id }}">
+                                {{ $shop->title }}
+                            </option>
                         @endforeach
                     </select>
                 </div>
