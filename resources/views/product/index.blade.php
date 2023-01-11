@@ -45,7 +45,7 @@
                 <tr>
                     <th> {{ $key + 1 }} </th>
                     @admin
-                        <td>  ... </td>
+                        <td>  {{ $product->shop->title ?? '--' }} </td>
                     @endadmin
                     <td> {{ $product->title }} </td>
                     <td> {{ number_format($product->price) }} </td> <!--  استفاده از Appends در product Model  -->
