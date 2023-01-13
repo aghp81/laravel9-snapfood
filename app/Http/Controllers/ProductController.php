@@ -44,8 +44,9 @@ class ProductController extends Controller
             $products = $products->where('title', 'like', "%$request->t%");
         }
 
-        if (condition) {
-            # code...
+        // جستجو برای نمایش پاک شده ها چک باکس
+        if ($request->d) {
+            $products =  $products->withTrashed();
         }
 
        // جستجو در فروشگاه ها برای مدیر
