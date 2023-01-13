@@ -39,6 +39,15 @@ class ProductController extends Controller
             $products = $products->where('shop_id', currentShopId());// فقط محصولات مربوط به همون فروشگاه رو نشون بده
         }
 
+        //  جستجو بر اساس عنوان محصول و مشابه با عنوان محصول
+        if ($request->t) {
+            $products = $products->where('title', 'like', "%$request->t%");
+        }
+
+        if (condition) {
+            # code...
+        }
+
        // جستجو در فروشگاه ها برای مدیر
         $products = $products->get();
         
