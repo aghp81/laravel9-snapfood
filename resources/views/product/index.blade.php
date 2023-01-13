@@ -65,7 +65,7 @@
         <!-- جستجو براساس نمایش پاک شده ها -->
         <div class="w-1/4 my-3 px-3">
             <label>
-                <input type="checkbox" name="d" value="1">  
+                <input type="checkbox" name="d" value="1" @if(request('d'))  checked   @endif>  
                 نمایش پاک شده ها
             </albel>
         </div>
