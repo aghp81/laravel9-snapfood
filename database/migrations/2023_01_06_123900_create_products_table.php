@@ -21,6 +21,7 @@ return new class extends Migration
             $table->unsignedSmallInteger('discount')->default(0);
             $table->string('image')->nullable();
             $table->text('description')->nullable();
+            $table->softDeletes();
             $table->timestamps();
         });
     }
