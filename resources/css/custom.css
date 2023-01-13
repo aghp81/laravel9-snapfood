@@ -31,6 +31,10 @@ select {
     border-color: rgb(209, 213, 219);
 }
 
+input[type='checkbox']{
+ border-radius: 3px;
+}
+
 .swal-button--ok {
     background-color: #E74C3C;
 }
