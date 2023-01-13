@@ -12,7 +12,6 @@ class product extends Model
     use HasFactory, SoftDeletes;
     protected $guarded = ['id']; // فقط id گارد بشه بقیه همه Fillable هستند.
     protected $appends = ['cost'];// محاسبه قیمت پس از تخفیف
-    protected $dates = ['deleted_at'];
 
     
     // محاسبه قیمت پس از تخفیف
