@@ -129,6 +129,13 @@ class ProductController extends Controller
 
     }
 
+    // بازیابی محصول سافت دیلیت شده
+    public function restore(product $product)
+    {
+        $product->restore();
+        return redirect()->route('product.index')->withMessage( __('SUCCESS') ); // DELETED in fa.json
+    }
+
 
     public function destroy(product $product)
     {
