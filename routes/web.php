@@ -35,5 +35,11 @@ Route::middleware([
 Route::resource('shop', 'ShopController')->except('show');
 
     // shop resource route
+
+     //بازیابی محصول سافت دیلیت شده
+Route::post('product/{product}/restore', 'ProductController@restote')->name('product.restore');
 Route::resource('product', 'ProductController')->except('show');
+
+
+
 
