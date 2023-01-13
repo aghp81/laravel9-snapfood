@@ -23,14 +23,24 @@ class ProductController extends Controller
         $this->middleware(['auth', 'admins']);
     }
  
-    public function index()
+    public function index(Request $request)
     {
         $shops = Shop::all(); // برای جست و جو در فروشگاه ها توسط مدیر
+        
+        $products = Product::query(); // برای جستجوی محصولات
+
+        // جستجو در فروشگاه ها برای مدیر
+     
         if (auth()->user()->is('admin')) { // اگر کاربر مدیر بود همه محصولات رو نمایش بده.
-            $products = Product::all(); 
+            if ($request->s) {
+                $products = $products->where('shop_id', $request->s);
+            }
         }else{
-            $products = Product::where('shop_id', currentShopId())->get();// فقط محصولات مربوط به همون فروشگاه رو نشون بده
+            $products = $products->where('shop_id', currentShopId());// فقط محصولات مربوط به همون فروشگاه رو نشون بده
         }
+
+       // جستجو در فروشگاه ها برای مدیر
+        $products = $products->get();
         
         return view('product.index', compact('products', 'shops'));
     }
