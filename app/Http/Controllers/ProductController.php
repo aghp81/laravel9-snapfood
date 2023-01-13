@@ -130,10 +130,11 @@ class ProductController extends Controller
     }
 
     // بازیابی محصول سافت دیلیت شده
-    public function restore(product $product)
+    public function restore($id)
     {
+        $product = Product::withTrashed()->where('id', $id)->firstOrFail();
         $product->restore();
-        return redirect()->route('product.index')->withMessage( __('SUCCESS') ); // DELETED in fa.json
+        return redirect()->route('product.index')->withMessage( __('SUCCESS') );
     }
 
 
