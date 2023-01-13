@@ -71,6 +71,7 @@
         </div>
 
         <!-- دکمه جستجو -->
+        <div class="w-full"></div>
         <div class="w-1/4 my-3 px-3 text-center">
             <x-jet-button>
                 {{ __('Search') }}
