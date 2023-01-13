@@ -16,6 +16,10 @@ return new class extends Migration
         Schema::table('products', function (Blueprint $table) {
             $table->softDeletes();
         });
+
+        Schema::table('shops', function (Blueprint $table) {
+            $table->softDeletes();
+        });
     }
 
     /**
@@ -26,6 +30,10 @@ return new class extends Migration
     public function down()
     {
         Schema::table('products', function (Blueprint $table) {
+            $table->dropSoftDeletes();
+        });
+
+        Schema::table('shops', function (Blueprint $table) {
             $table->dropSoftDeletes();
         });
     }
