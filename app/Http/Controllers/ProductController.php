@@ -25,13 +25,14 @@ class ProductController extends Controller
  
     public function index()
     {
+        $shops = Shop::all(); // برای جست و جو در فروشگاه ها توسط مدیر
         if (auth()->user()->is('admin')) { // اگر کاربر مدیر بود همه محصولات رو نمایش بده.
             $products = Product::all(); 
         }else{
             $products = Product::where('shop_id', currentShopId())->get();// فقط محصولات مربوط به همون فروشگاه رو نشون بده
         }
         
-        return view('product.index', compact('products'));
+        return view('product.index', compact('products', 'shops'));
     }
 
  
