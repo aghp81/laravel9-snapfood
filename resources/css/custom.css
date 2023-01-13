@@ -26,6 +26,11 @@ tbody > tr:nth-child(even) {
     background-color: #f3f4f6;
 }
 
+select {
+    border-radius: 6px;
+    border-color: rgb(209, 213, 219);
+}
+
 .swal-button--ok {
     background-color: #E74C3C;
 }
@@ -40,4 +45,16 @@ tbody > tr:nth-child(even) {
 
 .swal-button--confirm:hover {
     background-color: #2ecc71 !important;
+}
+
+.select2-container .select2-selection--single {
+    height: 42px;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__rendered{
+    line-height: 42px;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__arrow{
+    top: 8px;
 }
