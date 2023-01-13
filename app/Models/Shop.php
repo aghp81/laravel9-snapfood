@@ -4,7 +4,9 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Database\Eloquent\SoftDeletes;
+
+
 
 
 class Shop extends Model
@@ -14,6 +16,7 @@ class Shop extends Model
     
     // استفاده از appends برای نمایش نام و نام خانوادگی در کنار هم
     protected $appends = ['full_name']; 
+
 
     public function getFullNameAttribute () 
     {

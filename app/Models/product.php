@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 
 class product extends Model
@@ -12,6 +12,8 @@ class product extends Model
     use HasFactory, SoftDeletes;
     protected $guarded = ['id']; // فقط id گارد بشه بقیه همه Fillable هستند.
     protected $appends = ['cost'];// محاسبه قیمت پس از تخفیف
+    protected $dates = ['deleted_at'];
+
     
     // محاسبه قیمت پس از تخفیف
     public function getCostAttribute()
