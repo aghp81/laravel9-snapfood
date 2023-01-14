@@ -128,6 +128,7 @@ class ProductController extends Controller
 
     public function update(Request $request, product $product)
     {
+        checkProduct($product); // هر فروشنده فقط دسترسی ویرایش محصول به خود را دارد.
         $data = $request->validate($this->validationRules); // ولدیشین ها
         if (isset($data['image']) && $data['image']) { // اگر دیتای ایمیج داشتیم
             $data['image'] = upload($data['image']); // آپلود تصویر ا استفاده از تابع هلپر
@@ -149,6 +150,7 @@ class ProductController extends Controller
     // بازیابی محصول سافت دیلیت شده
     public function restore($id)
     {
+        checkProduct($product); // هر فروشنده فقط دسترسی ری استور محصول به خود را دارد.
         $product = Product::withTrashed()->where('id', $id)->firstOrFail();
         $product->restore();
         return redirect()->route('product.index')->withMessage( __('SUCCESS') );
@@ -157,6 +159,7 @@ class ProductController extends Controller
 
     public function destroy(product $product)
     {
+        checkProduct($product); // هر فروشنده فقط دسترسی حذف محصول به خود را دارد.
         $product->delete();
         return redirect()->route('product.index')->withMessage( __('DELETED') ); // DELETED in fa.json
     }
