@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fa" dir="rtl">
+<html lang="fa">
     <head>
         <meta charset="utf-8">
         <title> به سایت SF خوش آمدید </title>
@@ -10,17 +10,30 @@
     <body>
 
 
-        <ul class="nav nav-tabs">
-            <li class="nav-item">
-                <a class="nav-link active" href="{{url('/')}}"> صفحه اصلی </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#"> محصولات </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#"> Link 3 </a>
-            </li>
-        </ul>
+        <div class="container py-4">
+            <ul class="nav nav-tabs">
+                <li class="nav-item">
+                    <a class="nav-link active" href="{{url('/')}}"> صفحه اصلی </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#"> محصولات </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#"> فروشگاه ها </a>
+                </li>
+            </ul>
+
+            <div class="card mt-3">
+                <div class="card-body">
+                    <h3> صفحه اصلی </h3>
+
+                    <hr class="mt-3">
+                </div>
+            </div>
+
+        </div>
+
+        
         
 
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
