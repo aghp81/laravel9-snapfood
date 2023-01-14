@@ -49,6 +49,22 @@ class ProductController extends Controller
             $products =  $products->withTrashed();
         }
 
+        // مرتب سازی در فرم جستجو
+        if ($order = $request->o) {
+                if($order == 1){ // value = 1 ارزانترین
+                    $products = $products->orderBy('price', 'ASC');
+                }
+                if($order == 2){ // value = 2 گرانترین
+                    $products = $products->orderBy('price', 'DESC');
+                }
+                if($order == 3){ // value = 3 جدیدترین
+                    $products = $products->latest(); //orderBy('created_at', 'DESC');
+                }
+                if($order == 4){ // value = 4 قدیمی ترین
+                    $products = $products->orderBy('created_at', 'ASC');
+                }
+        }
+
        // جستجو در فروشگاه ها برای مدیر
         $products = $products->get();
         
