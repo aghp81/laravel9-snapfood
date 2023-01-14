@@ -16,10 +16,10 @@
                     <a class="nav-link active" href="{{url('/')}}"> صفحه اصلی </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#"> محصولات </a>
+                    <a class="nav-link" href="{{ route('landing', 'products') }}"> محصولات </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#"> فروشگاه ها </a>
+                    <a class="nav-link" href="{{ route('landing', 'shops') }}"> فروشگاه ها </a>
                 </li>
             </ul>
 
