@@ -25,7 +25,7 @@
 
             <div class="card mt-3">
                 <div class="card-body">
-                    <h3> صفحه اصلی </h3>
+                    <h3> محصولات  </h3>
 
                     <hr class="mt-3">
                 </div>
