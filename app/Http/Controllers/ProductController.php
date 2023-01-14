@@ -120,6 +120,7 @@ class ProductController extends Controller
    
     public function edit(Product $product)
     {
+        checkProduct($product); // هر فروشنده فقط دسترسی ویرایش محصول به خود را دارد.
         $shops = Shop::all(); // نمایش همه شاپ ها در پنل ادمین برای افزودن محصول
         return view('product.form', compact('product', 'shops')); // برای ایجاد و ویرایش فروشگاه
     }
