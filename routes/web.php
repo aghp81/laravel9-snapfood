@@ -30,7 +30,7 @@ Route::middleware([
 });
 
 
-// admin routes
+// admin(dashboard) routes
     // shop resource route
 Route::resource('shop', 'ShopController')->except('show');
 
@@ -41,5 +41,8 @@ Route::post('product/{id}/restore', 'ProductController@restore')->name('product.
 Route::resource('product', 'ProductController')->except('show');
 
 
+// public routes صفحه اصلی
+// landing/products
+Route::get('landing/{page}', 'LandingController@loadPage')->name('landing');
 
 
