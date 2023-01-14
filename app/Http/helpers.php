@@ -40,3 +40,12 @@ function currentShopId()
     $shop = App\Models\Shop::where('user_id', auth()->id())->firstOrFail(); // اونجایی که آی دی کاربر با آی دی شخصی که لاگین کرده برابره
     return $shop->id ?? 0; // اگر ای دی را پیدا کرد که کرد اگر نکرد 0 یعنی هیچ کدوم رو برمی گردونه
 }
+
+
+// هر فروشنده ای فقط بتواند محصول مربوط به خودش را ویرایش یا حذف کند.
+function checkProduct($product)
+{
+    if ($product->shop_id != currentShopId()) {
+        abort(404);
+    }
+}
