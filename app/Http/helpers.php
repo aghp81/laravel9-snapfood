@@ -43,7 +43,7 @@ function currentShopId()
 
 
 // هر فروشنده ای فقط بتواند محصول مربوط به خودش را ویرایش یا حذف کند.
-function checkProduct($product)
+function checkPolicy($type, $product) // یک تایپ رو به عنوان ورودی میگیره و یه آبجکت
 {
     if ($product->shop_id != currentShopId()) {
         abort(404);
