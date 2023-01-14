@@ -11,7 +11,7 @@ class LandingController extends Controller
     {
         if(method_exists($this, $page))
         {
-            $this->$page();
+            return $this->$page();
         }else{
             abort(404);
         }
