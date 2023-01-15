@@ -18,8 +18,8 @@
                         <!-- اگر تخفیف داشت -->
                         @if($product->discount)
 
-                            <span class="text-danger off">{{ number_format($product->price) }}</span>
-                            <span>{{ number_format($product->cost) }}</span>
+                            <span class="text-danger off mx-2">{{ number_format($product->price) }}</span>
+                            <span>{{ number_format($product->cost) }}</span><!-- cost در مدل ساخته شد. -->
 
                         @else <!-- اگر تخفیف نداشت -->
                             <span>{{ number_format($product->price) }}</span>
