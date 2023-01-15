@@ -1,3 +1,5 @@
+extends('layouts.landing')
+
 @section('content')
 
     <h3> صفحه اصلی </h3>
