@@ -1,6 +1,6 @@
 @font-face {
     font-family: 'IranYekan';
-    src: url(../fonts/Yekan.woff);
+    src: url(../fonts/IRANYekanWebMedium.woff);
 }
 
 body {
@@ -13,4 +13,8 @@ body {
     background-color: #fff;
     box-shadow: 2px 2px 4px gray;
     border-radius: 5px;
+}
+
+.product-card .off {
+    text-decoration: line-through;
 }
