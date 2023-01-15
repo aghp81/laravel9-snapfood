@@ -13,6 +13,7 @@
         <div class="container py-4">
             <ul class="nav nav-tabs">
                 <li class="nav-item">
+                    <!-- currentLandingPage() helper for active link -->
                     <a class="nav-link @unless(currentLandingPage())   active   @endunless" href="{{url('/')}}"> صفحه اصلی </a>
                 </li>
                 <li class="nav-item">
