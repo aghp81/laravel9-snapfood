@@ -1,4 +1,4 @@
-    <?php
+<?php
 
 // تبدیل تاریخ میلادی به شمسی 
 
@@ -55,5 +55,16 @@ function checkPolicy($case, $object) // یک تایپ رو به عنوان ور�
         default:
         abort(404);
             break;
+    }
+}
+
+// اکتیو بودن منوها هنگام انتخاب صفحه
+function currentLandingPage()
+{
+    if (request()->routeIs('landing')) {
+        $route = request()->route();
+        return $route->parameters['page'];
+        // dd(request()->route());
+        return 'products';
     }
 }

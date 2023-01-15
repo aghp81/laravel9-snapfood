@@ -13,13 +13,13 @@
         <div class="container py-4">
             <ul class="nav nav-tabs">
                 <li class="nav-item">
-                    <a class="nav-link active" href="{{url('/')}}"> صفحه اصلی </a>
+                    <a class="nav-link @unless(currentLandingPage())   active   @endunless" href="{{url('/')}}"> صفحه اصلی </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('landing', 'products') }}"> محصولات </a>
+                    <a class="nav-link @if(currentLandingPage() == 'products')  active  @endif"  href="{{ route('landing', 'products') }}"> محصولات </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('landing', 'shops') }}"> فروشگاه ها </a>
+                    <a class="nav-link @if(currentLandingPage() == 'shops')  active  @endif"  href="{{ route('landing', 'shops') }}"> فروشگاه ها </a>
                 </li>
             </ul>
 
