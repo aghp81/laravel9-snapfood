@@ -9,7 +9,7 @@
 
         @foreach($products as $product)
 
-            <div class="col-md-4 my-2 product-card">
+            <div class="col-md-4 my-3 product-card">
                 <div class="d-flex justify-content-between">
                     <h5>{{ $product->title }}</h5>
 
@@ -29,6 +29,9 @@
                     
                 </div>
                 <hr>
+
+                <img src="{{ asset($product->image) }}" alt="{{ $product->title }}">
+                <p> {{ $product->description }} </p>
             </div>
 
         @endforeach
