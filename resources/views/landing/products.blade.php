@@ -9,10 +9,24 @@
 
         @foreach($products as $product)
 
-            <div class="col-md-4 my-2">
+            <div class="col-md-4 my-2 product-card">
                 <div class="d-flex justify-content-between">
                     <h5>{{ $product->title }}</h5>
-                    <span>{{ $product->price }}</span>
+
+                    <p>
+                        
+                        <!-- اگر تخفیف داشت -->
+                        @if($product->discount)
+
+                            <span class="text-danger off">{{ number_format($product->price) }}</span>
+                            <span>{{ number_format($product->cost) }}</span>
+
+                        @else <!-- اگر تخفیف نداشت -->
+                            <span>{{ number_format($product->price) }}</span>
+
+                        @endif
+                    </p>
+                    
                 </div>
                 <hr>
             </div>
