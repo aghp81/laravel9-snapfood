@@ -31,7 +31,24 @@
                 <hr>
 
                 <img src="{{ asset($product->image) }}" alt="{{ $product->title }}">
-                <p> {{ $product->description }} </p>
+                
+                <p class="mt-3">
+                    @if($product->description)
+                        {{ $product->description }} 
+                    @else
+                        <em> بدون توضیحات ...</em>
+                    @endif
+                </p>
+                <hr class="mt-3 mb-3">
+                
+                <!-- نمایش نام فروشگاه -->
+                <div class="d-flex justify-content-between">
+                    <a href=""> {{ $product->shop->title ?? '-' }} </a>
+
+                    <button type="button" class="btn btn-info btn-sm px-3 text-primary"> اضافه به سبد خرید </button>
+
+
+                </div>
             </div>
 
         @endforeach
