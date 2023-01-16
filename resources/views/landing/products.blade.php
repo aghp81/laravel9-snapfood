@@ -42,7 +42,7 @@
                 <hr class="mt-3 mb-3">
                 
                 <!-- نمایش نام فروشگاه -->
-                <div class="d-flex justify-content-between">
+                <div class="d-flex justify-content-between align-items-center">
                     <a href=""> {{ $product->shop->title ?? '-' }} </a>
 
                     <button type="button" class="btn btn-info btn-sm px-3 text-primary"> اضافه به سبد خرید </button>
