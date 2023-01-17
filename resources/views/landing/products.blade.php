@@ -29,8 +29,8 @@
                     
                 </div>
                 <hr>
-
-                <img src="{{ asset($product->image) }}" alt="{{ $product->title }}">
+                    <!-- اگر تصویر نداشت تصویر پیشفرض -->
+                <img src="{{ asset($product->image ?? 'img/empty.jpg') }}" alt="{{ $product->title }}">
                 
                 <p class="mt-3">
                     @if($product->description)
