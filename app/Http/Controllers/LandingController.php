@@ -22,7 +22,7 @@ class LandingController extends Controller
     public function products()
     {
         // نمایش محصولات در صفحه landing
-        $products = Product::all();
+        $products = Product::paginate(9);
         return view('landing.products', compact('products'));
     }
 

@@ -5,6 +5,9 @@ namespace App\Providers;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Blade;
 
+use Illuminate\Pagination\Paginator;
+
+
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -41,5 +44,15 @@ class AppServiceProvider extends ServiceProvider
         Blade::if('user', function () {
             return auth()->check() && auth()->user()->is('user');
         });
+
+        // استفاده از صفحه بندی بوت استرپ
+        // dd(url()->current()); // url فعلی را می دهد
+        // چون در بخش ادمین از tailwindcss استفاده کردیم و در بخش landing از بوت استرپ
+        // dd(request()->path()); // مسیر فعلی را می دهد.
+
+        if (strpos(request()->path(), 'landing') === 0) {
+            Paginator::useBootstrapFive();
+         }
+        
     }
 }

@@ -66,7 +66,7 @@ class ProductController extends Controller
         }
 
        // جستجو در فروشگاه ها برای مدیر
-        $products = $products->get();
+        $products = $products->paginate(10);
         
         return view('product.index', compact('products', 'shops'));
     }

@@ -158,6 +158,7 @@
                                         حذف
                                     </button>
 
+                                    
                                 </form>
                             </td>
 
@@ -170,6 +171,11 @@
     </table>
 
 
+    <!-- صفحه بندی -->
+    <div class="mt-5">
+        {{ $products->links() }}
+    </div>
+    
 
     @endif
     

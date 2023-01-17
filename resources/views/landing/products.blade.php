@@ -55,4 +55,9 @@
 
     </div>
 
+    <hr class="mb-2">
+
+    <!-- صفحه بندی -->
+    {{ $products->links() }}
+
 @endsection
