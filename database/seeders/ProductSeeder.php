@@ -18,15 +18,18 @@ class ProductSeeder extends Seeder
      */
     public function run()
     {
-        $date = now()->add( -rand(1, 30), 'day'); // ایجاد تاریخ رندم - از یک تا سی روز از تاریخ امروز کم می کند.
-        DB::table('products')->insert([
-            'shop_id' => rand(9, 11),
-            'title' => Str::random(30),
-            'price' => rand(10, 100) * 1000,
-            'discount' => rand(0, 5) * 5,
-            'description' => Str::random(rand(1, 4) * 50),
-            'created_at' => $date,
-            'updated_at' => $date,
+        $words = [ "خورشت", "قیمه", "کباب", "ماهی", "پلو", "نان", "آب", "پیتزا", "ساندویچ", "مرغ", "سالاد"];
+        for ($i=0; $i < 50 ; $i++) { 
+            $date = now()->add( -rand(1, 30), 'day'); // ایجاد تاریخ رندم - از یک تا سی روز از تاریخ امروز کم می کند.
+            $title = $words[rand(0, count($words) - 1)] . ' ' . $words[rand(0, count($words) - 1)];
+            DB::table('products')->insert([
+                'shop_id' => rand(9, 11),
+                'title' => $title,
+                'price' => rand(10, 100) * 1000,
+                'discount' => rand(0, 5) * 5,
+                'created_at' => $date,
+                'updated_at' => $date,
         ]);
+        }
     }
 }
