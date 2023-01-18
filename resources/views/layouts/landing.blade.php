@@ -32,6 +32,16 @@
 
             <div class="card mt-3">
                 <div class="card-body">
+
+                    <!-- نمایش خطاها -->
+                    @if($error = session('error'))
+
+                        <div class="alert alert-danger">
+                            {{ $error }}
+                        </div>
+
+                    @endif
+
                     @yield('content')
                 </div>
             </div>
