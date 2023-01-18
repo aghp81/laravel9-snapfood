@@ -47,6 +47,15 @@
 
                     @endif
 
+                    <!-- نمایش پیغام موفق -->
+                    @if($message = session('message'))
+
+                        <div class="alert alert-success">
+                            {{ $message }}
+                        </div>
+
+                    @endif
+
                     @yield('content')
                 </div>
             </div>

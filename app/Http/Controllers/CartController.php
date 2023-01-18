@@ -22,14 +22,28 @@ class CartController extends Controller
             // dd('ok');
 
             // چک کنیم که آیا قبلا برای کاربری سبد خرید ایجاد شده است؟
-            $cart = Cart::where('user_id', $currentLogedInUser->id)->first();
-            // dd($cart);
+            // $cart = Cart::where('user_id', $currentLogedInUser->id)->first();
+            // // dd($cart);
             
-            // اگر کارت برای کاربر جاری ایجاد نشده بود.
-            if (!$cart) {
-                $cart = Cart::create(['user_id' => $currentLogedInUser->id]);
-            }
-            dd($cart);
+            // // اگر کارت برای کاربر جاری ایجاد نشده بود.
+            // if (!$cart) {
+            //     $cart = Cart::create(['user_id' => $currentLogedInUser->id]);
+            // }
+            // dd($cart);
+
+            // متد firstOrCreate
+            $cart = Cart::firstOrCreate(['user_id' => $currentLogedInUser->id]); // اگر در دیتابیس قبلا چیزی ثبت شده که شده اگر نه ایجاد کن.
+            // dd($cart);
+
+            // ایجاد CartItem
+            CartItem::create([
+                'cart_id' => $cart->id,
+                'product_id' => $product->id,
+                'count' => 1,
+                'payable' => $product->cost, // قیمت محصول پس از محاسبه تخفیف
+            ]);
+            return back()->withMessage('آیتم موردنظر به سبد خرید اضافه شد.');
+
         }else{
             return back()->withError('لطفا ابتدا وارد حساب کاربری خود شوید.'); // اگر کاربر لاگین نکرده بود.
         }
