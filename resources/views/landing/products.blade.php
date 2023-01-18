@@ -68,10 +68,13 @@
                 <hr class="mt-3 mb-3">
                 
                 <!-- نمایش نام فروشگاه -->
-                <form class="d-flex justify-content-between align-items-center" action="{{ route }}">
+                <form class="d-flex justify-content-between align-items-center" method="post" action="{{ route('cart.add', $product->id) }}">
+                    
+                    @csrf
+                    
                     <a href=""> {{ $product->shop->title ?? '-' }} </a>
 
-                    <button type="button" class="btn btn-info btn-sm px-3 text-primary">
+                    <button type="submit" class="btn btn-info btn-sm px-3 text-primary">
                          اضافه به سبد خرید 
                     </button>
                 </form>
