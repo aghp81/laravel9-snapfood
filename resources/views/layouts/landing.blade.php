@@ -23,7 +23,10 @@
                     <a class="nav-link @if(currentLandingPage() == 'shops')  active  @endif"  href="{{ route('landing', 'shops') }}"> فروشگاه ها </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link @if(currentLandingPage() == 'cart')  active  @endif"  href="{{ route('landing', 'cart') }}"> سبد خرید  </a>
+                    <a class="nav-link @if(currentLandingPage() == 'cart')  active  @endif"  href="{{ route('landing', 'cart') }}" id="cart">
+                         سبد خرید  
+                         <span> 0 </span>
+                    </a>
                 </li>
             </ul>
 
