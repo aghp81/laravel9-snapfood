@@ -28,6 +28,11 @@
                          <span> 0 </span>
                     </a>
                 </li>
+                <li class="nav-item mr-auto align-self-center">
+                    <a href="{{ route('login') }}" class="btn btn-primary btn-sm">
+                        حساب کاربری
+                    </a>
+                </li>
             </ul>
 
             <div class="card mt-3">
