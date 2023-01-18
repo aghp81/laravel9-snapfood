@@ -71,7 +71,9 @@
                 <div class="d-flex justify-content-between align-items-center">
                     <a href=""> {{ $product->shop->title ?? '-' }} </a>
 
-                    <button type="button" class="btn btn-info btn-sm px-3 text-primary"> اضافه به سبد خرید </button>
+                    <button type="button" class="btn btn-info btn-sm px-3 text-primary">
+                         اضافه به سبد خرید 
+                    </button>
 
 
                 </div>
