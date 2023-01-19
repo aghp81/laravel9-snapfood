@@ -12,6 +12,8 @@ class CartController extends Controller
 {
     public function manage(Product $product, Request $request)
     {
+        // dd($request->type);
+        $type = $request->type;
         // dd($product);
         // dd(auth()->user()); // آیا کاربری که دکمه افزودن به سبد خرید را زده لاگین کرده یا نه؟
         
@@ -37,7 +39,13 @@ class CartController extends Controller
             
             // قبل از ثبت محصول در سبد خرید چک کنیم که آیا از قبل وجود دارد و اگر وجو دارد به تعداد آن افزوده شود.
             if ($cart_item = $product->isInCart()) { // اگز کارت آیتم برگردونه کارت آیتم باید کونتش ویرایش بشه
-                $cart_item->count++; // یه دونه به مقدارش اضافه بشه.
+                
+                if ($type == 'add') {
+                    $cart_item->count++; // یه دونه به مقدارش اضافه بشه.
+                }else{
+                    $cart_item->count--;
+                }
+                
                 $cart_item->payable = $cart_item->count * $product->cost; // تعداد محصول ضربدر قیمت نهایی = قیمت قابل پرداخت
                 $cart_item->save();
             }else{ // اگر محصول در کارت نیست ایجاد شود.
