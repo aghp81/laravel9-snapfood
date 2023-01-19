@@ -74,9 +74,20 @@
                     
                     <a href=""> {{ $product->shop->title ?? '-' }} </a>
 
-                    <button type="submit" class="btn btn-info btn-sm px-3 text-primary">
-                         اضافه به سبد خرید 
-                    </button>
+                    <!-- اگر محصول در سبد خرید است. -->
+                    @if($cart_item = $product->isInCart())
+
+                        <div>
+                            <button type="submit" class="btn btn-warning btn-sm text-primary"> - </button>
+                            <span class="cart-count"> {{ $cart_item->count }} </span> <!-- تعداد محصول در سبد خرید را به کاربر نشان می دهیم -->
+                            <button type="submit" class="btn btn-warning btn-sm text-primary"> + </button>
+                        </div>
+
+                        @else <!-- اگر محصول در سبد خرید نیست اضافه شود. -->
+                            <button type="submit" class="btn btn-info btn-sm px-3 text-primary">
+                                اضافه به سبد خرید 
+                            </button>
+                    @endif
                 </form>
 
             </div>
