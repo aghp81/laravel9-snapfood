@@ -26,4 +26,18 @@ class product extends Model
     {
         return $this->belongsTo(Shop::class);
     }
+
+    // آیا یک محصول از قبل در کارت خرید وجود دارد؟
+    public function isInCart()
+    {
+        $currentLogedInUser = auth()->user(); // باید ایتدا ببینیم کاربر لاگین کرده که بتوان سبد خرید او را بررسی کرد.
+        // اگر کاربر لاگین کرده بود
+        if ($currentLogedInUser) {
+            $cart = Cart::where('user_id', $currentLogedInUser->id)->first(); // اگر کاربری داشتیم کارت رو پیدا کنه.
+            // اگر کارتی پیدا کرد
+            if ($cart) {
+               return CartItem::where('cart_id', $cart->id)->where('product_id', $this->id)->first(); // $this->id == $product->id چون در مدل پروداکت هستیم. first(); == اگر پیدا کرد کارت ایتم رو برگردونه
+            }
+        }
+    }
 }
