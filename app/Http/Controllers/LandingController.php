@@ -53,4 +53,10 @@ class LandingController extends Controller
         return view('landing.shops');
     }
 
+    // نمایش صفحه سبد خرید
+    public function cart()
+    {
+        return view('landing.cart');
+    }
+
 }
