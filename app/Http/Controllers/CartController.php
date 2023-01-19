@@ -10,7 +10,7 @@ use App\Models\CartItem;
 
 class CartController extends Controller
 {
-    public function add(Product $product)
+    public function manage(Product $product)
     {
         // dd($product);
         // dd(auth()->user()); // آیا کاربری که دکمه افزودن به سبد خرید را زده لاگین کرده یا نه؟

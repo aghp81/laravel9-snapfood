@@ -47,4 +47,4 @@ Route::get('landing/{page}', 'LandingController@loadPage')->name('landing');
 
 
 // cart routes
-Route::post('cart/add/{product}', 'CartController@add')->name('cart.add');
+Route::post('cart/manage/{product}', 'CartController@manage')->name('cart.manage');

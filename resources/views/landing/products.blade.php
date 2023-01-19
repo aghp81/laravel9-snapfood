@@ -68,7 +68,7 @@
                 <hr class="mt-3 mb-3">
                 
                 <!-- نمایش نام فروشگاه -->
-                <form class="d-flex justify-content-between align-items-center" method="post" action="{{ route('cart.add', $product->id) }}">
+                <form class="d-flex justify-content-between align-items-center" method="post" action="{{ route('cart.manage', $product->id) }}">
                     
                     @csrf
                     
