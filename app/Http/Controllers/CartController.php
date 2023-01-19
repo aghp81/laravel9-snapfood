@@ -34,14 +34,22 @@ class CartController extends Controller
             // متد firstOrCreate
             $cart = Cart::firstOrCreate(['user_id' => $currentLogedInUser->id]); // اگر در دیتابیس قبلا چیزی ثبت شده که شده اگر نه ایجاد کن.
             // dd($cart);
-
-            // ایجاد CartItem
-            CartItem::create([
-                'cart_id' => $cart->id,
-                'product_id' => $product->id,
-                'count' => 1,
-                'payable' => $product->cost, // قیمت محصول پس از محاسبه تخفیف
-            ]);
+            
+            // قبل از ثبت محصول در سبد خرید چک کنیم که آیا از قبل وجود دارد و اگر وجو دارد به تعداد آن افزوده شود.
+            if ($cart_item = $product->isInCart()) { // اگز کارت آیتم برگردونه کارت آیتم باید کونتش ویرایش بشه
+                $cart_item->count++; // یه دونه به مقدارش اضافه بشه.
+                $cart_item->payable = $cart_item->count * $product->cost; // تعداد محصول ضربدر قیمت نهایی = قیمت قابل پرداخت
+                $cart_item->save();
+            }else{ // اگر محصول در کارت نیست ایجاد شود.
+                // ایجاد CartItem
+                CartItem::create([
+                    'cart_id' => $cart->id,
+                    'product_id' => $product->id,
+                    'count' => 1,
+                    'payable' => $product->cost, // قیمت محصول پس از محاسبه تخفیف
+                ]);
+            }
+            
             return back()->withMessage('آیتم موردنظر به سبد خرید اضافه شد.');
 
         }else{
