@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\Shop;
+use App\Models\Cart;
 
 class LandingController extends Controller
 {
@@ -56,7 +57,11 @@ class LandingController extends Controller
     // نمایش صفحه سبد خرید
     public function cart()
     {
-        return view('landing.cart');
+        $user_id = auth()->id(); // باید ایتدا ببینیم کاربر لاگین کرده که بتوان سبد خرید او را بررسی کرد.
+
+        $cart = Cart::where('user_id', $user_id)->first(); // اگر کاربری داشتیم کارت رو پیدا کنه.
+        // dd($cart);
+        return view('landing.cart', compact('cart'));
     }
 
 }
