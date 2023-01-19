@@ -68,3 +68,18 @@ function currentLandingPage()
         return 'products';
     }
 }
+
+
+// نمایش تعداد محصل در سبد خرید در منو
+function cartCount()
+{
+    $currentLogedInUser = auth()->user(); // باید ایتدا ببینیم کاربر لاگین کرده که بتوان سبد خرید او را بررسی کرد.
+    $count = 0;
+    if ($currentLogedInUser) {
+        $cart = App\Models\Cart::where('user_id', $currentLogedInUser->id)->first(); // اگر کاربری داشتیم کارت رو پیدا کنه.
+        if ($cart) {
+            $count = App\Models\CartItem::where('cart_id', $cart->id)->sum('count'); // جمع اعداد ستون count را نمایش دهد.
+        }
+    }
+    return $count;
+}
