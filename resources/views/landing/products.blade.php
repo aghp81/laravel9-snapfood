@@ -78,13 +78,13 @@
                     @if($cart_item = $product->isInCart())
 
                         <div>
-                            <button type="submit" name="type" value="minus" class="btn btn-warning btn-sm text-primary"> - </button>
+                            <button type="button" name="type" value="minus" class="btn btn-warning btn-sm text-primary manage-cart"> - </button>
                             <span class="cart-count"> {{ $cart_item->count }} </span> <!-- تعداد محصول در سبد خرید را به کاربر نشان می دهیم -->
-                            <button type="submit" name="type" value="add" class="btn btn-warning btn-sm text-primary"> + </button>
+                            <button type="button" name="type" value="add" class="btn btn-warning btn-sm text-primary manage-cart"> + </button>
                         </div>
 
                         @else <!-- اگر محصول در سبد خرید نیست اضافه شود. -->
-                            <button type="submit" name="type" value="add" class="btn btn-info btn-sm px-3 text-primary">
+                            <button type="button" name="type" value="add" class="btn btn-info btn-sm px-3 text-primary manage-cart">
                                 اضافه به سبد خرید 
                             </button>
                     @endif
