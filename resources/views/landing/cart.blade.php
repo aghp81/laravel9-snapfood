@@ -56,6 +56,11 @@
         </tbody>
     </table>
 
+    <!-- دکمه پرداخت -->
+    <form class="text-center">
+        <button type="submit" class="btn btn-outline-primary"> تایید و پرداخت </button>
+    </form>
+
     <!-- اگر کارت خالی بود -->
     @else
     <div class="alert alert-info">

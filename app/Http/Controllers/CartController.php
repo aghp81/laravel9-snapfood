@@ -80,4 +80,22 @@ class CartController extends Controller
         return back()->withMessage('آیتم موردنظر از سبد خرید حذف شد.');
     }
 
+    // پرداخت و تسویه حساب
+    public function finish()
+    {
+        $cart = Cart::where('user_id', auth()->user)->where('finished', 0)->first();// اونجایی که کاربر جاری همون کاربر سبده و اونجایی که سبد هنوز تسویه نشده از دیتابیس استخراج کن
+        // auth()->user == هلپر لاراول به جای $currentLogedInUser = auth()->user();
+        
+        // اگر کارتی پیدا نشد
+        if (!$cart) {
+            return back()->withError('سبد خریدی وجود ندارد.'); 
+        }
+        $cart->finished = 1;
+        $cart->save();
+        return back()->withMessage('پرداخت شما با موفقیت در سیستم ثبت شد.');
+
+    }
+
 }
+
+
