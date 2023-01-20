@@ -26,7 +26,7 @@
             <tr>
                 <th> {{ $key+1 }} </th>
                 <td> {{ $item->product->title ?? '--' }} </td> <!-- CartItem.php - public function product() --> 
-                <td> {{ '--' }} </td> <!-- CartItem.php - public function product() --> 
+                <td> {{ $item->product->shop->title ?? '--' }} </td> <!-- product.php - public function shop() --> 
                 <td> {{ $item->count }} </td>
                 <td> {{ number_format($item->payable) }} </td>
                 <!--حذف از سبد خرید-->
