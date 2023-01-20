@@ -25,13 +25,13 @@
                 <th> {{ $key+1 }} </th>
                 <td> {{ $item->product->title ?? '--' }} </td> <!-- CartItem.php - public function product() --> 
                 <td> {{ $item->count }} </td>
-                <td> {{ number_format($item->payable) }} تومان</td>
+                <td> {{ number_format($item->payable) }} </td>
             </tr>
             @endforeach
             <!-- جمع سبد خرید -->
             <tr>
                 <td colspan="3"> جمع کل </td>
-                <td> {{ number_format($cart->sum) }} </td> <!-- Cart.php - getSumAttribute() -->
+                <td> {{ number_format($cart->sum) }} تومان</td> <!-- Cart.php - getSumAttribute() -->
             </tr>
         </tbody>
     </table>
