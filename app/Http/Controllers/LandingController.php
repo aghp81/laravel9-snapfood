@@ -61,6 +61,7 @@ class LandingController extends Controller
 
         $cart = Cart::where('user_id', $user_id)->first(); // اگر کاربری داشتیم کارت رو پیدا کنه.
         // dd($cart);
+        // dd($cart->items);
         return view('landing.cart', compact('cart'));
     }
 
