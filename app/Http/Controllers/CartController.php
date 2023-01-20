@@ -69,7 +69,9 @@ class CartController extends Controller
     // حذف از سبد خرید  
     public function remove(CartItem $cart_item)
     {
-        dd($cart_item);
+        // dd($cart_item);
+        $cart_item->delete();
+        return back()->withMessage('آیتم موردنظر از سبد خرید حذف شد.');
     }
 
 }
