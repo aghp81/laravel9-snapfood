@@ -31,7 +31,7 @@
             <!-- جمع سبد خرید -->
             <tr>
                 <td colspan="3"> جمع کل </td>
-                <td> xxx </td>
+                <td> {{ number_format($cart->sum) }} </td>
             </tr>
         </tbody>
     </table>
