@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('carts', function (Blueprint $table) {
             $table->id();
             $table->unsignedInteger('user_id'); // سبد خرید متعلق به چه کاربری است؟
+            $table->unsignedInteger('code')->nullable(); // کد پیگیری بعد از پرداخت
             $table->boolean('finished')->default(0); // برای تسویه سبد خرید
             $table->timestamps();
         });

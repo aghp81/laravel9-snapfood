@@ -57,7 +57,8 @@
     </table>
 
     <!-- دکمه پرداخت -->
-    <form class="text-center">
+    <form action="{{route('cart.finish')}}" method="post" class="text-center">
+        @csrf    
         <button type="submit" class="btn btn-outline-primary"> تایید و پرداخت </button>
     </form>
 

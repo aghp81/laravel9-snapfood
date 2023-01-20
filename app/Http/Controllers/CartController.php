@@ -83,16 +83,18 @@ class CartController extends Controller
     // پرداخت و تسویه حساب
     public function finish()
     {
-        $cart = Cart::where('user_id', auth()->user)->where('finished', 0)->first();// اونجایی که کاربر جاری همون کاربر سبده و اونجایی که سبد هنوز تسویه نشده از دیتابیس استخراج کن
+        // dd('here');
+        $cart = Cart::where('user_id', auth()->id())->where('finished', 0)->first();// اونجایی که کاربر جاری همون کاربر سبده و اونجایی که سبد هنوز تسویه نشده از دیتابیس استخراج کن
         // auth()->user == هلپر لاراول به جای $currentLogedInUser = auth()->user();
         
         // اگر کارتی پیدا نشد
         if (!$cart) {
-            return back()->withError('سبد خریدی وجود ندارد.'); 
+            return back()->withError('سبد خریدی وجود ندارد!');
         }
         $cart->finished = 1;
+        $cart->code = rand(100000, 999999); // عداد رندم 6 رقمی برای کد پیگیری
         $cart->save();
-        return back()->withMessage('پرداخت شما با موفقیت در سیستم ثبت شد.');
+        return back()->withMessage("پرداخت شما با موفقیت در سیستم ثبت شد. کد پیگیری : $cart->code");
 
     }
 
