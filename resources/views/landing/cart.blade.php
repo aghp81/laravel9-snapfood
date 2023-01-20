@@ -5,8 +5,10 @@
     <h3>  سبد خرید شما   </h3>
 
     <hr class="mt-3">
+    <!-- اگر کارت داشتیم جدول سبد خرید رو نشون بده -->
+    @if($cart)
 
-    <!-- جدول نمایش محتویات سبد خرید -->
+        <!-- جدول نمایش محتویات سبد خرید -->
     <table class="table table-bordered">
         <thead>
             <tr>
@@ -53,5 +55,13 @@
             </tr>
         </tbody>
     </table>
+
+    <!-- اگر کارت خالی بود -->
+    @else
+    <div class="alert alert-info">
+        سبد خرید شما خالی است.
+    </div>
+    @endif
+    
 
 @endsection

@@ -34,7 +34,7 @@ class CartController extends Controller
             // dd($cart);
 
             // متد firstOrCreate
-            $cart = Cart::firstOrCreate(['user_id' => $currentLogedInUser->id]); // اگر در دیتابیس قبلا چیزی ثبت شده که شده اگر نه ایجاد کن.
+            $cart = Cart::firstOrCreate(['user_id' => $currentLogedInUser->id, 'finished' => 0]); // اگر در دیتابیس قبلا کارتی ثبت شده و هنوز بسته نشده بیار اگر نه ایجاد کن.
             // dd($cart);
             
             // قبل از ثبت محصول در سبد خرید چک کنیم که آیا از قبل وجود دارد و اگر وجو دارد به تعداد آن افزوده شود.
