@@ -39,15 +39,19 @@ class CartController extends Controller
             
             // قبل از ثبت محصول در سبد خرید چک کنیم که آیا از قبل وجود دارد و اگر وجو دارد به تعداد آن افزوده شود.
             if ($cart_item = $product->isInCart()) { // اگز کارت آیتم برگردونه کارت آیتم باید کونتش ویرایش بشه
-                
-                if ($type == 'add') {
-                    $cart_item->count++; // یه دونه به مقدارش اضافه بشه.
+                // اگر دکمه - را زدیم و مقدار محصول در کارت آیتم یک بود از سبد خرید حذف شود.
+                if ($type == 'minus' && $cart_item->count == 1) {
+                    $cart_item->delete();
                 }else{
-                    $cart_item->count--;
+                    if ($type == 'add') {
+                        $cart_item->count++; // یه دونه به مقدارش اضافه بشه.
+                    }else{
+                        $cart_item->count--;
+                    }
+                    
+                    $cart_item->payable = $cart_item->count * $product->cost; // تعداد محصول ضربدر قیمت نهایی = قیمت قابل پرداخت
+                    $cart_item->save();
                 }
-                
-                $cart_item->payable = $cart_item->count * $product->cost; // تعداد محصول ضربدر قیمت نهایی = قیمت قابل پرداخت
-                $cart_item->save();
             }else{ // اگر محصول در کارت نیست ایجاد شود.
                 // ایجاد CartItem
                 CartItem::create([
