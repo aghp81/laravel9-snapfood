@@ -42,6 +42,8 @@ class CartController extends Controller
                 // اگر دکمه - را زدیم و مقدار محصول در کارت آیتم یک بود از سبد خرید حذف شود.
                 if ($type == 'minus' && $cart_item->count == 1) {
                     $cart_item->delete();
+                    return back()->withMessage('آیتم موردنظر از سبد خرید حذف شد.');
+
                 }else{
                     if ($type == 'add') {
                         $cart_item->count++; // یه دونه به مقدارش اضافه بشه.
