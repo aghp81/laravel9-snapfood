@@ -27,7 +27,14 @@
                 <th> {{ $key+1 }} </th>
                 <td> {{ $item->product->title ?? '--' }} </td> <!-- CartItem.php - public function product() --> 
                 <td> {{ $item->product->shop->title ?? '--' }} </td> <!-- product.php - public function shop() --> 
-                <td> {{ $item->count }} </td>
+                <td>
+                    <form method="post" action="{{ route('cart.manage', $item->product_id) }}">
+                        @csrf
+                        <button type="submit" name="type" value="minus" class="btn btn-warning btn-sm text-primary"> - </button>
+                        <span class="cart-count"> {{ $item->count }} </span> <!-- تعداد محصول در سبد خرید را به کاربر نشان می دهیم -->
+                        <button type="submit" name="type" value="add" class="btn btn-warning btn-sm text-primary"> + </button>
+                    </form>
+                </td>
                 <td> {{ number_format($item->payable) }} </td>
                 <!--حذف از سبد خرید-->
                 <td>
