@@ -59,7 +59,7 @@ class LandingController extends Controller
     {
         $user_id = auth()->id(); // باید ایتدا ببینیم کاربر لاگین کرده که بتوان سبد خرید او را بررسی کرد.
 
-        $cart = Cart::where('user_id', $user_id)->first(); // اگر کاربری داشتیم کارت رو پیدا کنه.
+        $cart = Cart::where('user_id', $user_id)->where('finished', 0)->first(); // اگر کاربری داشتیم کارت رو پیدا کنه.
         // dd($cart);
         // dd($cart->items);
         return view('landing.cart', compact('cart'));
