@@ -13,7 +13,7 @@ class CartController extends Controller
     public function manage(Product $product, Request $request)
     {
         // dd($request->type);
-        $type = $request->type;
+        $type = $request->type; // add - minus
         // dd($product);
         // dd(auth()->user()); // آیا کاربری که دکمه افزودن به سبد خرید را زده لاگین کرده یا نه؟
         
@@ -65,4 +65,11 @@ class CartController extends Controller
         }
     
     }
+
+    // حذف از سبد خرید  
+    public function remove(CartItem $cart_item)
+    {
+        dd($cart_item);
+    }
+
 }
