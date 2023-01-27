@@ -56,7 +56,7 @@ class CartController extends Controller
                 }
             }else{ // اگر محصول در کارت نیست ایجاد شود.
                 // ایجاد CartItem
-                CartItem::create([
+                $cart_item = CartItem::create([
                     'cart_id' => $cart->id,
                     'product_id' => $product->id,
                     'count' => 1,
@@ -65,9 +65,15 @@ class CartController extends Controller
             }
             
             // return back()->withMessage('آیتم موردنظر به سبد خرید اضافه شد.'); // چون با ajax ارسال می کنیم فقط return میکنیم.
-            return 'آیتم موردنظر به سبد خرید اضافه شد.';
+            return [
+                'message' => 'آیتم موردنظر به سبد خرید اضافه شد.',
+                'count' => $cart_item->count,
+            ];
+            
         }else{
-            return 'لطفا ابتدا وارد حساب کاربری خود شوید.'; // اگر کاربر لاگین نکرده بود.
+            return [
+                'error' => 'لطفا ابتدا وارد حساب کاربری خود شوید.',
+            ]; // اگر کاربر لاگین نکرده بود.
         }
     
     }
@@ -77,7 +83,10 @@ class CartController extends Controller
     {
         // dd($cart_item);
         $cart_item->delete();
-        return 'آیتم موردنظر از سبد خرید حذف شد.';
+        return [
+            'message' => 'آیتم موردنظر لز سبد خرید شما حذف شد.',
+            'count' => 0,
+        ];
     }
 
     // پرداخت و تسویه حساب
