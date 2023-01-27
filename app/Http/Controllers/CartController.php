@@ -42,7 +42,6 @@ class CartController extends Controller
                 // اگر دکمه - را زدیم و مقدار محصول در کارت آیتم یک بود از سبد خرید حذف شود.
                 if ($type == 'minus' && $cart_item->count == 1) {
                     $cart_item->delete();
-                    return 'آیتم موردنظر از سبد خرید حذف شد.';
 
                 }else{
                     if ($type == 'add') {
@@ -66,8 +65,9 @@ class CartController extends Controller
             
             // return back()->withMessage('آیتم موردنظر به سبد خرید اضافه شد.'); // چون با ajax ارسال می کنیم فقط return میکنیم.
             return [
-                'message' => 'آیتم موردنظر به سبد خرید اضافه شد.',
+                // 'message' => 'آیتم موردنظر به سبد خرید اضافه شد.',
                 'count' => $cart_item->count,
+                'totalCount' => $cart->count, // نمایش جمع عدد سبد - count == Cart.php -> public function getCountAttribute()
             ];
             
         }else{
@@ -83,10 +83,7 @@ class CartController extends Controller
     {
         // dd($cart_item);
         $cart_item->delete();
-        return [
-            'message' => 'آیتم موردنظر لز سبد خرید شما حذف شد.',
-            'count' => 0,
-        ];
+        return back()->withMessage('آیتم مورد نظر از سبد خرید شما حذف شد.');
     }
 
     // پرداخت و تسویه حساب

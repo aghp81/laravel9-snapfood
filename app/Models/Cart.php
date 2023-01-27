@@ -9,7 +9,7 @@ class Cart extends Model
 {
     use HasFactory;
     protected $guarded = ['id'];
-    protected $appends = ['sum']; // محاسبه جمع سبد خرید خارج از دیتابیس
+    protected $appends = ['sum', 'count']; // محاسبه جمع سبد خرید خارج از دیتابیس
 
     // محاسبه جمع سبد خرید خارج از دیتابیس
     public function getSumAttribute() // نام تابع باید اینگونه انتخاب شود.
@@ -17,7 +17,13 @@ class Cart extends Model
         return CartItem::where('cart_id', $this->id)->sum('payable');
     }
     
-    
+    // جمع عدد موجود در سبد خرید
+    public function getCountAttribute()
+    {
+        return CartItem::where('cart_id', $this->id)->sum('count');
+    }
+
+
     // ارتباط بین کارت و کارت آیتم. هر کارت تعداد زیادی کارت آیتم دارد.
     public function items()
     {

@@ -30,6 +30,8 @@ $(document).on('click', '.manage-cart', function() {
             // console.log(res.count);
             // نمایش تعداد محصول موجود در سبد خرید
             form.find('.cart-count').text(res.count); //.text() == تغییر محتوای المنت
+            // نمایش عدد روی سبد خرید
+            $('#cart > span').text(res.totalCount) // landing.blade.php -> id="cart"
         }
     });
 });
