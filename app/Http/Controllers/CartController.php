@@ -42,7 +42,7 @@ class CartController extends Controller
                 // اگر دکمه - را زدیم و مقدار محصول در کارت آیتم یک بود از سبد خرید حذف شود.
                 if ($type == 'minus' && $cart_item->count == 1) {
                     $cart_item->delete();
-                    return back()->withMessage('آیتم موردنظر از سبد خرید حذف شد.');
+                    return 'آیتم موردنظر از سبد خرید حذف شد.';
 
                 }else{
                     if ($type == 'add') {
@@ -64,10 +64,10 @@ class CartController extends Controller
                 ]);
             }
             
-            return back()->withMessage('آیتم موردنظر به سبد خرید اضافه شد.');
-
+            // return back()->withMessage('آیتم موردنظر به سبد خرید اضافه شد.'); // چون با ajax ارسال می کنیم فقط return میکنیم.
+            return 'آیتم موردنظر به سبد خرید اضافه شد.';
         }else{
-            return back()->withError('لطفا ابتدا وارد حساب کاربری خود شوید.'); // اگر کاربر لاگین نکرده بود.
+            return 'لطفا ابتدا وارد حساب کاربری خود شوید.'; // اگر کاربر لاگین نکرده بود.
         }
     
     }
@@ -77,7 +77,7 @@ class CartController extends Controller
     {
         // dd($cart_item);
         $cart_item->delete();
-        return back()->withMessage('آیتم موردنظر از سبد خرید حذف شد.');
+        return 'آیتم موردنظر از سبد خرید حذف شد.';
     }
 
     // پرداخت و تسویه حساب

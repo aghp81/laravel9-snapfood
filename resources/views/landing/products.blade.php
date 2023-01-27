@@ -70,7 +70,7 @@
                 <!-- نمایش نام فروشگاه -->
                 <form class="d-flex justify-content-between align-items-center" method="post" action="{{ route('cart.manage', $product->id) }}">
                     
-                    @csrf
+                    <!-- چون ریکوئست را با ajax میفرستیم csrf رو از اینجا حذف میک نیم. -->
                     
                     <a href=""> {{ $product->shop->title ?? '-' }} </a>
 
