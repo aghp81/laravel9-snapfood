@@ -74,20 +74,28 @@
                     
                     <a href=""> {{ $product->shop->title ?? '-' }} </a>
 
+                    <div @if(!$product->isInCart())  class="hidden"  @endif> <!-- اگر در سبد خرید چیزی نبود هیدن شود. -->
+                        <button type="button" name="type" value="minus" class="btn btn-warning btn-sm text-primary manage-cart"> - </button>
+                        <span class="cart-count"> x </span> <!-- تعداد محصول در سبد خرید را به کاربر نشان می دهیم -->
+                        <button type="button" name="type" value="add" class="btn btn-warning btn-sm text-primary manage-cart"> + </button>
+                    </div>
+
+                    <div @if($product->isInCart())  class="hidden"  @endif> <!-- اگر در سبد خرید چیزی بود هیدن شود. -->
+                        <button type="button" name="type" value="add" class="btn btn-info btn-sm px-3 text-primary manage-cart">
+                                    اضافه به سبد خرید 
+                        </button>   
+                    </div>
+
+                        
                     <!-- اگر محصول در سبد خرید است. -->
                     @if($cart_item = $product->isInCart())
 
-                        <div>
-                            <button type="button" name="type" value="minus" class="btn btn-warning btn-sm text-primary manage-cart"> - </button>
-                            <span class="cart-count"> {{ $cart_item->count }} </span> <!-- تعداد محصول در سبد خرید را به کاربر نشان می دهیم -->
-                            <button type="button" name="type" value="add" class="btn btn-warning btn-sm text-primary manage-cart"> + </button>
-                        </div>
+                        
 
                         @else <!-- اگر محصول در سبد خرید نیست اضافه شود. -->
-                            <button type="button" name="type" value="add" class="btn btn-info btn-sm px-3 text-primary manage-cart">
-                                اضافه به سبد خرید 
-                            </button>
+                            
                     @endif
+                    
                 </form>
 
             </div>
