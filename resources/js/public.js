@@ -3,8 +3,9 @@ $(document).on('click', '.manage-cart', function() {
     // alert('hello');
 
     // console.log($(this).parents('form').attr('action')); // $(this) == .manage-cart - parents('form') == .manage-cart والد فرم از  کلاس - .attr('action') == اتربیوت اکشن از فرم
-
-    var url = $(this).parents('form').attr('action'); // $(this) == .manage-cart - parents == تمام پرنت های this
+    var element = $(this);
+    var form = element.parents('form');
+    var url = form.attr('action'); // $(this) == .manage-cart - parents == تمام پرنت های this
 
     // برای ارسال CSRF 
     $.ajaxSetup({
@@ -17,8 +18,11 @@ $(document).on('click', '.manage-cart', function() {
     $.ajax({
         url: url,
         method: "POST",
-        success: function(res) {
-            console.log(res); // پس از  کلیک دکمه افزودن به سبد خرید اجرای تابع manage از کارت کنترلر
+        success: function(res) { // پس از  کلیک دکمه افزودن به سبد خرید اجرای تابع manage از کارت کنترلر
+            var inCartDiv = form.children('.in-cart'); // بین چیلدرن های فرم بگرد و کلاس in-cart رو پیدا کن. 
+            var notInCartDiv = form.children('.not-in-cart');
+            inCartDiv.show(); // وقتی به سبد خرید اضافه شد show شود.
+            notInCartDiv.hide();
         }
     });
 });

@@ -74,13 +74,13 @@
                     
                     <a href=""> {{ $product->shop->title ?? '-' }} </a>
 
-                    <div @if(!$product->isInCart())  class="hidden"  @endif> <!-- اگر در سبد خرید چیزی نبود هیدن شود. -->
+                    <div class="in-cart    @unless($cart_item = $product->isInCart())  hidden   @endunless"> <!-- اگر در سبد خرید چیزی نبود هیدن شود. -->
                         <button type="button" name="type" value="minus" class="btn btn-warning btn-sm text-primary manage-cart"> - </button>
-                        <span class="cart-count"> x </span> <!-- تعداد محصول در سبد خرید را به کاربر نشان می دهیم -->
+                        <span class="cart-count"> {{ $cart_item->count ?? 0 }} </span> <!-- تعداد محصول در سبد خرید را به کاربر نشان می دهیم -->
                         <button type="button" name="type" value="add" class="btn btn-warning btn-sm text-primary manage-cart"> + </button>
                     </div>
 
-                    <div @if($product->isInCart())  class="hidden"  @endif> <!-- اگر در سبد خرید چیزی بود هیدن شود. -->
+                    <div class="not-in-cart    @if($product->isInCart())  hidden  @endif"> <!-- اگر در سبد خرید چیزی بود هیدن شود. -->
                         <button type="button" name="type" value="add" class="btn btn-info btn-sm px-3 text-primary manage-cart">
                                     اضافه به سبد خرید 
                         </button>   
