@@ -98,6 +98,10 @@
                     
                 </form>
 
+                <div class="hidden alert alert-danger mt-2">
+                    
+                </div>
+
             </div>
 
         @endforeach
