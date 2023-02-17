@@ -13,7 +13,7 @@ class CartController extends Controller
     public function manage(Product $product, Request $request)
     {
         // dd($request->type);
-        $type = $request->type; // add - minus
+        $type = $request->type; // add - remove
         // dd($product);
         // dd(auth()->user()); // آیا کاربری که دکمه افزودن به سبد خرید را زده لاگین کرده یا نه؟
         
@@ -25,7 +25,7 @@ class CartController extends Controller
 
             // چک کنیم که آیا قبلا برای کاربری سبد خرید ایجاد شده است؟
             // $cart = Cart::where('user_id', $currentLogedInUser->id)->first();
-            // // dd($cart);
+             // dd($cart);
             
             // // اگر کارت برای کاربر جاری ایجاد نشده بود.
             // if (!$cart) {
@@ -51,7 +51,6 @@ class CartController extends Controller
                     $cart_item->delete();
 
                 }else{
-                    
                     
                     $cart_item->payable = $cart_item->count * $product->cost; // تعداد محصول ضربدر قیمت نهایی = قیمت قابل پرداخت
                     $cart_item->save();

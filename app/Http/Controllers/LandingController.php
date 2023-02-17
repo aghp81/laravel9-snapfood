@@ -20,6 +20,13 @@ class LandingController extends Controller
         }
     }
 
+    // نمایش اطلاعات فروشگاه در صفحه هر فروشگاه
+    public function showShop(Shop $shop)
+    {
+        // dd($shop);
+        return view('landing.shop', compact('shop'));
+    }
+
     public function products()
     {
         // جستجوی محصولات
@@ -51,7 +58,8 @@ class LandingController extends Controller
 
     public function shops()
     {
-        return view('landing.shops');
+        $shops = Shop::latest()->paginate(2);
+        return view('landing.shops', compact('shops'));
     }
 
     // نمایش صفحه سبد خرید

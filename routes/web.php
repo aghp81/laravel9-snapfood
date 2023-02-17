@@ -44,7 +44,7 @@ Route::resource('product', 'ProductController')->except('show');
 // public routes صفحه اصلی
 // landing/products
 Route::get('landing/{page}', 'LandingController@loadPage')->name('landing');
-
+Route::get('landing/shop/{shop}', 'LandingController@showShop')->name('shop.show'); // رفتن به صفحه فروشگاه و نمایش اطلاعات آن
 
 // cart routes
 Route::post('cart/manage/{product}', 'CartController@manage')->name('cart.manage');
