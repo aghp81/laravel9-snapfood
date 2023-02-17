@@ -8,7 +8,7 @@
 
     <div class="row">
 
-        @foreach($shop->products as $product)
+        @foreach($products as $product)
 
             @include('landing.fragments.product_card')
 
@@ -16,4 +16,5 @@
 
     </div>
     
+    {{ $products->links() }}
 @endsection

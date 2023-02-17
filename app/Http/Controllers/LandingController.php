@@ -23,8 +23,9 @@ class LandingController extends Controller
     // نمایش اطلاعات فروشگاه در صفحه هر فروشگاه
     public function showShop(Shop $shop)
     {
+        $products = Product:: where('shop_id', $shop->id)->paginate(9); // نمایش محصولات مربوط به هر فروشگاه در صفحه خودش
         // dd($shop);
-        return view('landing.shop', compact('shop'));
+        return view('landing.shop', compact('shop', 'products'));
     }
 
     public function products()
