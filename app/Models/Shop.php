@@ -29,4 +29,10 @@ class Shop extends Model
         return $this->belongsTo(User::class);
     }
 
+    // برای نمایش محصولات مربوط به هر فروشگاه در صفحه خودش 
+    public function products()
+    {
+        return $this->hasMany(Product::class); // هر فروشگاه تعداد زیادی محصول دارد.
+    }
+
 }
