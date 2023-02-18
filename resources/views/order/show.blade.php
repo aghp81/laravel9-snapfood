@@ -5,11 +5,7 @@
         </h2>
     </x-slot>
 
-    
+    @include('landing.fragments.cart_table', ['cart' => $order, 'operations' => false])
 
     
-
-
-
-
 </x-app-layout>
