@@ -41,7 +41,7 @@ Route::post('product/{id}/restore', 'ProductController@restore')->name('product.
 Route::resource('product', 'ProductController')->except('show');
 
     // نمایش لیست سفارشات
-Route::resource('order', 'OrderController')->only(['index', 'destroy']);
+Route::resource('order', 'OrderController')->only(['index', 'show', 'destroy']);
 
 
 // public routes صفحه اصلی
