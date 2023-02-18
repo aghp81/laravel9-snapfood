@@ -19,6 +19,12 @@ class OrderController extends Controller
         return view ('order.index', compact('orders'));
     }
 
+    //نمایش جزئیات سفارش 
+    public function show(Order $order)
+    {
+        // dd($order);
+        return view ('order.show', compact('order'));
+    }
     
 
 
