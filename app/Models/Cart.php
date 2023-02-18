@@ -29,4 +29,10 @@ class Cart extends Model
     {
         return $this->hasMany(CartItem::class);
     }
+
+    // نمایش نام کاربر در لیست سفارشات
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

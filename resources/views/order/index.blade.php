@@ -22,6 +22,7 @@
                 <th> وضعیت </th>
                 <th> کد پیگیری </th>
                 <th> تاریخ </th>
+                <th colspan="2"> عملیات </th>
             </tr>
         </thead>
 
@@ -30,7 +31,7 @@
             @foreach($orders as $key => $order)
                 <tr>
                     <th> {{ $key+1 }} </th>
-                    <td> ... </td>
+                    <td> {{ $order->user->name ?? '-' }} </td>
                     <td>
                         @if($order->finished)
                             <span class="text-green-600"> پرداخت شده </span>
@@ -41,6 +42,16 @@
 
                     <td> {{ $order->code ?? '-' }} </td>
                     <td> {{ persianDate($order->created_at) }} </td>
+                    <td>
+                        <a href="#" class="delete-record inline-flex items-center px-4 py-2 bg-gray-500 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:ring focus:ring-gray-300 disabled:opacity-25 transition">
+                            جزئیات
+                        </a>
+                    </td>
+                    <td>
+                        <button type="button" class="delete-record inline-flex items-center px-4 py-2 bg-red-500 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-red-700 active:bg-red-900 focus:outline-none focus:border-red-900 focus:ring focus:ring-gray-300 disabled:opacity-25 transition">
+                            حذف
+                        </button>
+                    </td>
                 </tr>
             @endforeach
 
