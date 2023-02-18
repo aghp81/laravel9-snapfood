@@ -16,5 +16,6 @@
 
     </div>
     
+    <hr>
     {{ $products->links() }}
 @endsection

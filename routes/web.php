@@ -40,6 +40,9 @@ Route::resource('shop', 'ShopController')->except('show');
 Route::post('product/{id}/restore', 'ProductController@restore')->name('product.restore');
 Route::resource('product', 'ProductController')->except('show');
 
+    // نمایش لیست سفارشات
+Route::resource('order', 'OrderController')->except('show');
+
 
 // public routes صفحه اصلی
 // landing/products
