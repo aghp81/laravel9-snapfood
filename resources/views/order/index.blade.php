@@ -47,11 +47,14 @@
                             جزئیات
                         </a>
                     </td>
-                    <td>
-                        <button type="button" class="delete-record inline-flex items-center px-4 py-2 bg-red-500 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-red-700 active:bg-red-900 focus:outline-none focus:border-red-900 focus:ring focus:ring-gray-300 disabled:opacity-25 transition">
-                            حذف
-                        </button>
-                    </td>
+                    
+                    @admin
+                        <td>
+                            <button type="button" class="delete-record inline-flex items-center px-4 py-2 bg-red-500 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-red-700 active:bg-red-900 focus:outline-none focus:border-red-900 focus:ring focus:ring-gray-300 disabled:opacity-25 transition">
+                                حذف
+                            </button>
+                        </td>
+                    @endadmin
                 </tr>
             @endforeach
 
