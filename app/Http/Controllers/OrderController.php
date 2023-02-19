@@ -8,6 +8,14 @@ use App\Models\Cart as Order;
 
 class OrderController extends Controller
 {
+
+     public function __construct()
+     {
+         $this->middleware('auth'); // چک کردن لاگین بودن کاربر
+         $this->middleware('admin')->only('destroy'); // destroy فقط برای ادمین
+     }
+
+
     /**
      * Display a listing of the resource.
      *
