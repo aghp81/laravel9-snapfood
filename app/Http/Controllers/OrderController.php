@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Models\Cart as Order;
+use App\Models\CartItem;
 
 class OrderController extends Controller
 {
@@ -42,8 +43,10 @@ class OrderController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Order $order)
     {
-        //
+        // dd($order);
+        $order->delete(); // حذف کارت
+        CartItem::where('cart_id', $order->id)->delete(); // حذف کارت آیتم های مربوط به همان کارت
     }
 }
