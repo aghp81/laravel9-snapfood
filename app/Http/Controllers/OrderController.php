@@ -24,7 +24,12 @@ class OrderController extends Controller
      */
     public function index()
     {
-        $orders = Order::paginate(10);
+        $currentLoggedInUser = auth()->user();
+        $orders = Order::query();
+        if ($currentLoggedInUser->role == 'user') {
+            $orders = $orders->where('user_id', $currentLoggedInUser->id);
+        }
+        $orders = $orders->paginate(10);
         return view ('order.index', compact('orders'));
     }
 
@@ -48,5 +53,7 @@ class OrderController extends Controller
         // dd($order);
         $order->delete(); // حذف کارت
         CartItem::where('cart_id', $order->id)->delete(); // حذف کارت آیتم های مربوط به همان کارت
+        return back()->withMessage( __('DELETED') ); // DELETED in fa.json
+
     }
 }
