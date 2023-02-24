@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 
 use App\Models\Cart as Order;
 use App\Models\CartItem;
+use App\Models\Product;
+use App\Models\Shop;
 
 class OrderController extends Controller
 {
@@ -25,12 +27,35 @@ class OrderController extends Controller
     public function index()
     {
         $currentLoggedInUser = auth()->user();
-        $orders = Order::query();
+        // اگر کاربر فروشنده باشد نمایش در ویوی دیگر
+        if ($currentLoggedInUser->role == 'shop') {
+
+            // dd($currentLoggedInUser->id);
+
+            $currentShop = Shop::where('user_id', $currentLoggedInUser->id)->first();
+
+            // dd($currentShop);
+
+            $pids = Product::where('shop_id', $currentShop->id)->pluck('id')->toArray(); // pluck('id') == فقط آی دی رو بگیر
+            
+            // dd($pids);
+
+            $items = CartItem::whereIn('product_id', $pids)->paginate(10); // whereIn == $pids یک آرایه است.
+            
+            // dd($items);
+            
+            return view('order.shop_index', compact('items'));
+        }else {
+
+            $orders = Order::query();
+
+        // هر کاربر فقط لیست سفارشات خودش را ببیند.
         if ($currentLoggedInUser->role == 'user') {
             $orders = $orders->where('user_id', $currentLoggedInUser->id);
         }
         $orders = $orders->paginate(10);
         return view ('order.index', compact('orders'));
+        }
     }
 
     //نمایش جزئیات سفارش 

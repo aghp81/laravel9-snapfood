@@ -15,4 +15,10 @@ class CartItem extends Model
     {
         return $this->belongsTo(Product::class);
     }
+
+    // دسترسی به نام مشتری و نمایش آن در جدول سفارشات فروشگاه
+    public function cart()
+    {
+        return $this->belongsTo(Cart::class);
+    }
 }
