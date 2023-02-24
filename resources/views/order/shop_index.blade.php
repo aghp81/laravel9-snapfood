@@ -16,6 +16,8 @@
                 <th> قابل پرداخت </th>
                 <th> تاریخ  </th>
                 <th> ساعت  </th>
+                <th> وضعیت  </th>
+                <th> تغییر وضعیت  </th>
             </tr>
         </thead>
 
@@ -29,6 +31,29 @@
                     <td> {{ number_format($item->payable) }} </td>
                     <td> {{ persianDate($item->created_at) }} </td>
                     <td> {{ $item->created_at->format('H:i') }} </td>
+                    <td>
+                        @if($item->status == 1)
+                            <span class="bg-yellow-400 text-white px-4 py-2"> سفارش جدید </span>
+                        @elseif($item->status == 2)
+                            <span class="bg-green-400 text-white px-4 py-2"> تحویل داده شده  </span>
+                        @else
+                            <span class="bg-red-400 text-white px-4 py-2"> مرجوع شده </span>
+                        @endif
+                    </td>
+
+                    <td>
+                        <form class="flex" action="" method="post">
+                            <select class="form-control from-control-sm" name="status" id="">
+                                <option value=""> ---  </option>
+                                <option value="1"> سفارش جدید </option>
+                                <option value="2"> تحویل داده شده  </option>
+                                <option value="3"> مرجوع شده  </option>
+                            </select>
+                            <x-jet-button class="mr-4">
+                                تایید
+                            </x-jet-button>
+                        </form>
+                    </td>
                     
                 </tr>
             @endforeach
