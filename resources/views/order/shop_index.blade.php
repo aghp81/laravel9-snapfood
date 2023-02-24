@@ -34,6 +34,11 @@
             @endforeach
         </tbody>
     </table>
+
+    <div class="mt-5">
+        {{ $items->links() }}
+    </div>
     
+
 
 </x-app-layout>
