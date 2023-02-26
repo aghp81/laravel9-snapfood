@@ -16,6 +16,7 @@ class OrderController extends Controller
      {
          $this->middleware('auth'); // چک کردن لاگین بودن کاربر
          $this->middleware('admin')->only('destroy'); // destroy فقط برای ادمین
+         $this->middleware('admins')->only('changeStatus'); // changeStatus  فقط برای ادمینها فروشنده و مدیر
      }
 
 
@@ -63,6 +64,18 @@ class OrderController extends Controller
     {
         // dd($order);
         return view ('order.show', compact('order'));
+    }
+
+
+    // برای تغییر وضعیت سفارشات
+    public function changeStatus(CartItem $cart_item, Request $request)
+    {
+         // dd($cart_item, $request->all());
+
+         $cart_item->status = $request->status;
+         $cart_item->save();
+         return back()->withMessage( __('SUCCESS') ); // DELETED in fa.json
+        
     }
     
 

@@ -44,6 +44,9 @@ Route::resource('product', 'ProductController')->except('show');
 Route::resource('order', 'OrderController')->only(['index', 'show', 'destroy']);
 
 
+// برای تغییر وضعیت سفارشات
+Route::post('order/status/{cart_item}', 'OrderController@changeStatus')->name('order.status');
+
 // public routes صفحه اصلی
 // landing/products
 Route::get('landing/{page}', 'LandingController@loadPage')->name('landing');

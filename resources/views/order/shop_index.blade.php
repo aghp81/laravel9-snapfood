@@ -42,7 +42,8 @@
                     </td>
 
                     <td>
-                        <form class="flex" action="" method="post">
+                        <form class="flex" action="{{ route('order.status', $item->id) }}" method="post">
+                            @csrf
                             <select class="form-control from-control-sm" name="status" id="">
                                 <option value=""> ---  </option>
                                 <option value="1"> سفارش جدید </option>
