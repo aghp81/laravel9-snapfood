@@ -61,4 +61,9 @@ class User extends Authenticatable
         return $role == $this->role;
     }
 
+    // کاربر از طریق کلاس شاپ تعداد زیادی پروداکت داره.
+    public function products() {
+        return $this->hasManyThrough(Product::class, Shop::class);
+    }
+
 }
