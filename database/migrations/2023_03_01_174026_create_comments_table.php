@@ -15,7 +15,9 @@ return new class extends Migration
     {
         Schema::create('comments', function (Blueprint $table) {
             $table->id();
-            $table->unsignedInteger('shop_id');
+            $table->morphs('owner'); // به جای دو ردیف زیر - شورت کات لاراول
+            // $table->string('owner_type'); // shop - product
+            // $table->unsignedInteger('owner_id'); // shop_id - product_id
             $table->text('text');
             $table->timestamps();
         });
