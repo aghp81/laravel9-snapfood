@@ -59,3 +59,5 @@ Route::post('cart/finish', 'CartController@finish')->name('cart.finish');
     //remove item from CartItem
 Route::delete('cart/{cart_item}', 'CartController@remove')->name('cart.remove');
 
+//comments
+Route::post('comment', 'CommentController@store')->name('comment.store');
