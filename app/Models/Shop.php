@@ -35,4 +35,9 @@ class Shop extends Model
         return $this->hasMany(Product::class); // هر فروشگاه تعداد زیادی محصول دارد.
     }
 
+    public function comments()
+    {
+        return $this->hasMany(Comment::class); // هر فروشگاه تعداد زیادی کامنت دارد.
+    }
+
 }
