@@ -20,7 +20,7 @@
     {{ $products->links() }}
 
     <!-- کامنت گذاری -->
-    @include('landing.fragments.comments')
+    @include('landing.fragments.comments', ['list' => $shop->comments, 'owner_type' => 'Shop'], 'owner_id' => $shop->id) <!--  ارسال لیست کامنت های فروشگاه و اطلاعات فروشگاه-->
 
     
 @endsection
