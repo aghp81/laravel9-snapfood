@@ -51,6 +51,7 @@ Route::post('order/status/{cart_item}', 'OrderController@changeStatus')->name('o
 // landing/products
 Route::get('landing/{page}', 'LandingController@loadPage')->name('landing');
 Route::get('landing/shop/{shop}', 'LandingController@showShop')->name('shop.show'); // رفتن به صفحه فروشگاه و نمایش اطلاعات آن
+Route::get('landing/product/{product}', 'LandingController@showProduct')->name('product.show'); // رفتن به صفحه هر محصول و نمایش اطلاعات آن
 
 // cart routes
 Route::post('cart/manage/{product}', 'CartController@manage')->name('cart.manage');
