@@ -1,6 +1,6 @@
 <div class="col-md-4 my-3 product-card">
                 <div class="d-flex justify-content-between">
-                    <h5>{{ $product->title }}</h5>
+                    <h5><a href="{{ route('product.show', $product->id) }}"> {{ $product->title }} </a> </h5>
 
                     <p>
                         

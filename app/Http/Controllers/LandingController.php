@@ -28,6 +28,15 @@ class LandingController extends Controller
         return view('landing.shop', compact('shop', 'products'));
     }
 
+
+    // نمایش اطلاعات محصول در صفحه هر محصول
+    public function showProduct(product $product)
+    {
+        // dd($shop);
+        return view('landing.product', compact('product'));
+    }
+
+
     public function products()
     {
         // جستجوی محصولات
