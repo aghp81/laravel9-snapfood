@@ -40,4 +40,9 @@ class product extends Model
             }
         }
     }
+
+    public function comments()
+    {
+        return $this->morphMany(Comment::class, 'owner'); // هر فروشگاه تعداد زیادی کامنت دارد.
+    }
 }

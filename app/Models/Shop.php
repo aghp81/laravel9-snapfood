@@ -37,7 +37,7 @@ class Shop extends Model
 
     public function comments()
     {
-        return $this->hasMany(Comment::class); // هر فروشگاه تعداد زیادی کامنت دارد.
+        return $this->morphMany(Comment::class, 'owner'); // هر فروشگاه تعداد زیادی کامنت دارد.
     }
 
 }
