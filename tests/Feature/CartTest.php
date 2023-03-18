@@ -12,7 +12,7 @@ use App\Models\CartItem;
 
 class CartTest extends TestCase
 {
-    use RefreshDatabase; // یعنی مایرگریشن ها رو پاک کرده و از نو ران میکند.
+    use RefreshDatabase; //  همه چیز را در دیتابیس پاک میکند. یعنی مایرگریشن ها رو پاک کرده و از نو ران میکند.
     /**
      * Test if user can see cart page.
      *
