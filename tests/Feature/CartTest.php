@@ -6,6 +6,7 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 use App\Models\User;
+use App\Models\Product;
 
 class CartTest extends TestCase
 {
@@ -32,7 +33,7 @@ class CartTest extends TestCase
         $user = User::factory()->create(); // ایجاد یک یوزر برای تست 
         $product = Product::factory()->create(); // ایجاد یک محصول برای تست 
         
-        $response = $this->actingAs($user)->post('cart/manage/1',[
+        $response = $this->actingAs($user)->post("cart/manage/$product->id",[
             'type' => 'add'
         ]);
 
