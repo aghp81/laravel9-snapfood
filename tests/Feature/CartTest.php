@@ -7,6 +7,8 @@ use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 use App\Models\User;
 use App\Models\Product;
+use App\Models\Cart;
+use App\Models\CartItem;
 
 class CartTest extends TestCase
 {
@@ -20,6 +22,8 @@ class CartTest extends TestCase
     {
         $response = $this->get('landing/cart');
 
+        $this->assertCount(1, Cart::all()); // باید چک کند که تعداد کل کارت ها یکی باشد.
+        $this->assertCount(1, CartItem::all()); // باید چک کند که تعداد کل کارت آیتم ها یکی باشد.
         $response->assertStatus(200); // اگر استاتوس کد 200 بود یعنی صفحه با موفقیت لود شده.
     }
 
