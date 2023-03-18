@@ -30,6 +30,8 @@ class CartTest extends TestCase
     public function test_if_users_can_add_to_cart()
     {
         $user = User::factory()->create(); // ایجاد یک یوزر برای تست 
+        $product = Product::factory()->create(); // ایجاد یک محصول برای تست 
+        
         $response = $this->actingAs($user)->post('cart/manage/1',[
             'type' => 'add'
         ]);
